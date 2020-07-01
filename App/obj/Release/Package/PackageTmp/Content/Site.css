@@ -1,0 +1,202 @@
+﻿.matop {
+    margin-top: 45px;
+}
+
+input[type=email], input[type=url], input[type=search], input[type=tel], input[type=color], input[type=text], input[type=password], input[type=datetime], input[type=datetime-local], input[type=date], input[type=month], input[type=time], input[type=week], input[type=number], textarea {
+    padding: 0px 5px 0px;
+    font-size: 12px !important;
+    color: #000;
+    
+}
+
+.form-control {
+    height: 25px;
+    font-size: 11px;
+}
+
+label {
+    font-size: 12px !important;
+}
+
+.form-group {
+    margin-bottom: 5px !important;
+}
+
+.form-horizontal .control-label {
+    padding-top: 3px !important;
+}
+
+.input-group-addon {
+    font-size: 10px;
+}
+
+.btn-account {
+    padding: 0px 5px;
+    font-size: 10px;
+}
+
+.btn-custom a {
+    text-decoration: none;
+}
+
+.btn-print {
+    background: #9b59b6;
+    text-transform: uppercase;
+    border: medium none;
+    padding: 0px 30px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 2px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.btn-custom a:hover {
+    text-decoration: none;
+    background-color: #fff;
+    color: #000;
+}
+
+.acc-dr {
+    background-color: red !important;
+}
+
+btn, .btn-default, .btn-default.focus, .btn-default:focus, .btn.focus, .btn:focus {
+    background-color: #307ECC !important;
+    border-color: #307ECC;
+}
+    btn, .btn-default, .btn-default.focus, .btn-default:focus, .btn.focus, .btn:focus:hover {
+        background-color: #307ECC !important;
+        border-color: #307ECC;
+    }
+.btn-save {
+    background-color: #3F51B5;
+    color: #fff;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 8px 34px;
+    padding-top: 5px;
+    text-align: center;
+    border: 1px solid #6dca75;
+    border-radius: 3px;
+    text-decoration: none;
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+    .btn-save:hover {
+        background: #7986CB;
+        text-shadow: 5px 3px 3px #005d34;
+        box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+    }
+.btn-save-print {
+    background-color: #60a917;
+    color: #fff;
+    font-size: 15px;
+    line-height: 15px;
+    padding-top: 2px;
+    padding: 6px 11px;
+    text-align: center;
+    margin-right: 5px;
+    border: 1px solid #6dca75;
+    border-radius: 3px;
+    text-decoration: none;
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+    .btn-save-print:hover {
+        background: #a4c400;
+        text-shadow: 5px 3px 3px #005d34;
+        box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+    }
+.btn-15 {
+    margin-right: 7px;
+    float: right;
+}
+
+.btn-update {
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 6px 28px;
+    padding-top: 2px;
+    text-align: center;
+    border: 1px solid #6dca75;
+    border-radius: 3px;
+    text-decoration: none;
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+    .btn-update:hover {
+        background: #9ae1a0;
+        text-shadow: 5px 3px 3px #005d34;
+        box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+    }
+
+.btn-search {
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 6px 23px;
+    padding-top: 2px;
+    text-align: center;
+    border: 1px solid #6dca75;
+    border-radius: 3px;
+    text-decoration: none;
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    -webkit-transition: .3s;
+    transition: .3s;
+    margin-top: 5px;
+}
+
+    .btn-search:hover {
+        background: #9ae1a0;
+        text-shadow: 5px 3px 3px #005d34;
+        box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+    }
+
+.tbl-p {
+    padding: 5px;
+    font-size: 11px;
+}
+.btn-group + .btn, .btn-group > .btn {
+    border-width: 0px;
+    height: 25px;
+    padding-top: 2px;
+}
+.selectize-input{
+    padding:4px 8px;
+}
+.padding-dis {
+    padding-left: 6px;
+    padding-right: 0px;
+}
+.label-padding{
+    font-size:15px;
+}
+/*.widget-header {
+    color: #fff;
+    background: repeat-x #307ECC;
+    background-image: -webkit-linear-gradient(top,#307ECC 0,rgb(119, 194, 249) 100%);
+    background-image: -o-linear-gradient(top,#FFF 0,#EEE 100%);
+    background-image: -webkit-linear-gradient(top,#307ECC 0,rgb(119, 194, 249) 100%);
+}*/
+.btn.btn-app.btn-sm {
+    width: auto;
+    font-size: 16px;
+    border-radius: 10px;
+    line-height: 1.5;
+    padding: 21px;
+    margin-top: 100px;
+}

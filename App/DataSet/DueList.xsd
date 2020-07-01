@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DueList" targetNamespace="http://tempuri.org/DueList.xsd" xmlns:mstns="http://tempuri.org/DueList.xsd" xmlns="http://tempuri.org/DueList.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="ShantiPOS" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ShantiPOS (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.ShantiPOS.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DueList" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DueList" msprop:Generator_UserDSName="DueList">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DueList" msprop:Generator_TableClassName="DueListDataTable" msprop:Generator_TableVarName="tableDueList" msprop:Generator_RowChangedName="DueListRowChanged" msprop:Generator_TablePropName="_DueList" msprop:Generator_RowDeletingName="DueListRowDeleting" msprop:Generator_RowChangingName="DueListRowChanging" msprop:Generator_RowEvHandlerName="DueListRowChangeEventHandler" msprop:Generator_RowDeletedName="DueListRowDeleted" msprop:Generator_RowClassName="DueListRow" msprop:Generator_UserTableName="DueList" msprop:Generator_RowEvArgName="DueListRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CustomerId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCustomerId" msprop:Generator_ColumnPropNameInRow="CustomerId" msprop:Generator_ColumnPropNameInTable="CustomerIdColumn" msprop:Generator_UserColumnName="CustomerId" type="xs:long" />
+              <xs:element name="CustomerUId" msdata:Caption="CustomerId" msprop:Generator_ColumnVarNameInTable="columnCustomerUId" msprop:Generator_ColumnPropNameInRow="CustomerUId" msprop:Generator_ColumnPropNameInTable="CustomerUIdColumn" msprop:Generator_UserColumnName="CustomerUId" type="xs:long" />
+              <xs:element name="CustomerName" msdata:Caption="STAmount" msprop:Generator_ColumnVarNameInTable="columnCustomerName" msprop:Generator_ColumnPropNameInRow="CustomerName" msprop:Generator_ColumnPropNameInTable="CustomerNameColumn" msprop:Generator_UserColumnName="CustomerName" type="xs:decimal" />
+              <xs:element name="District" msdata:Caption="TSSD" msprop:Generator_ColumnVarNameInTable="columnDistrict" msprop:Generator_ColumnPropNameInRow="District" msprop:Generator_ColumnPropNameInTable="DistrictColumn" msprop:Generator_UserColumnName="District" type="xs:decimal" />
+              <xs:element name="Phone" msdata:Caption="TSVat" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_UserColumnName="Phone" type="xs:decimal" />
+              <xs:element name="TotalDueAmount" msprop:Generator_ColumnVarNameInTable="columnTotalDueAmount" msprop:Generator_ColumnPropNameInRow="TotalDueAmount" msprop:Generator_ColumnPropNameInTable="TotalDueAmountColumn" msprop:Generator_UserColumnName="TotalDueAmount" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DueList" />
+      <xs:field xpath="mstns:CustomerId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

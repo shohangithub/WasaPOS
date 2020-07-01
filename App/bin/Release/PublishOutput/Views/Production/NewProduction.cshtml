@@ -1,0 +1,291 @@
+﻿
+@{
+    ViewBag.Title = "NewProduction";
+    string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+}
+<div class="col-xs-12 ">
+    <div class="widget-box">
+        <div class="widget-body">
+            <div class="widget-main">
+                <form class="form-horizontal" role="form">
+                    <input type="hidden" id="hidden_area" />
+                    <div class="row">
+                        <div class="col-xs-12 ">
+                            <div class="widget-box ">
+
+                                <div class="widget-header">
+                                    <h4 class="widget-title">Production Entry</h4>
+                                </div>
+                                <div class="widget-body">
+                                    <div class="widget-main">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="contact_persion">Shift</label>
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control" id="ProductionShift" name="ProductionShift" tabindex="1">
+                                                            <option value="">Select Shift</option>
+                                                            <option value="A">A</option>
+                                                            <option value="B">B</option>
+                                                            <option value="C">C</option>
+                                                        </select>
+                                                        <span class="ProductionShift text-danger">Shift no required</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="date">Production Date</label>
+                                                    <div class="col-sm-9">
+                                                        <div class='input-group date' id='datetimepicker'>
+                                                            <input type="text" class="form-control" id="ProductionDate" value="@currentDate" name="ProductionDate" tabindex="2" />
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                        </div>
+                                                        <span class="ProductionDate text-danger">Production Date no required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="clearfix">
+                                <div class="pull-right tableTools-container"></div>
+                            </div>
+                            <div class="widget-header">
+                                <h4 class="widget-title">Production Details Entry</h4>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <table id="dynamic-table" class="table table-responsive">
+                                        <thead>
+                                            <tr style="background-color:#0094ff; margin-top:20px; color:#fff; text-align:center;">
+                                                <th>Product Name</th>
+                                                <th>Unit</th>
+                                                <th>Quantity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="width:300px;">
+                                                    <input type="text" id="swml250" class="form-control" value="Shanti Water 250 ML" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="swml250_unit" class="form-control" value="Pc" readonly />
+
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="swml250_quantity" placeholder="Quantity" class="form-control" value="" tabindex="3" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:300px;">
+                                                    <input type="text" id="sw5ml" class="form-control" value="Shanti Water 0.5 L" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw5ml_unit" class="form-control" value="Pc" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw5ml_quantity" placeholder="Quantity" class="form-control" value="" tabindex="4" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:300px;">
+                                                    <input type="text" id="sw1l" class="form-control" value="Shanti Water 1.0 L" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw1l_unit" class="form-control" value="Pc" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw1l_quantity" placeholder="Quantity" class="form-control" value="" tabindex="5" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:300px;">
+                                                    <input type="text" id="sw15l" class="form-control" value="Shanti Water 1.5 L" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw15l_unit" placeholder="Unit" class="form-control" value="Pc" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw15l_quantity" placeholder="Quantity" class="form-control" value="" tabindex="6" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:300px;">
+                                                    <input type="text" id="sw2l" class="form-control" value="Shanti Water 2.0 L" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw2l_unit" class="form-control" value="Pc" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw2l_quantity" placeholder="Quantity" class="form-control" value="" tabindex="7" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:300px;">
+                                                    <input type="text" id="sw5l" class="form-control" value="Shanti Water 5.0 L" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw5l_unit" placeholder="Unit" class="form-control" value="Pc" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw5l_quantity" placeholder="Quantity" class="form-control" value="" tabindex="8" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:300px;">
+                                                    <input type="text" id="sw20l" class="form-control" value="Shanti Water 20.0 L" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw20l_unit" class="form-control" value="Pc" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw20l_quantity" placeholder="Quantity" class="form-control" value="" tabindex="9" />
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <div class="form-group">
+                                        <div class="col-sm-3 col-sm-offset-9">
+                                            <input id="submit" type="button" value="Save" class="btn-save" />
+                                            @*//<button type="button" class="btn-save " id="btnAdd" onclick="Create();">Save</button>*@
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(function () {
+        $('#datetimepicker').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+
+
+    });
+
+    $(document).ready(function () {
+        var ProductionDetails = [];
+        $('.text-danger').hide();
+      
+        $('#submit').click(function () {
+            var isAllValid = true;
+            if ($('#ProductionShift').val().trim() == '') {
+                isAllValid = false;              
+                $('.ProductionShift.text-danger').show();
+            }
+            else {
+              
+                $('.ProductionShift.text-danger').hide();
+            }
+            if ($('#ProductionDate').val().trim() == '') {
+                isAllValid = false;
+                $('.ProductionDate.text-danger').show();
+            }
+            else {
+
+                $('.ProductionShift.text-danger').hide();
+            }
+            if (isAllValid) {
+
+                if ($('#swml250_unit').val() != "") {
+                    ProductionDetails.push({
+                        ProductName: $('#swml250').val().trim(),                     
+                        Quantity: parseInt($('#swml250_quantity').val().trim())
+                    });
+                }
+
+                if ($('#sw5ml_quantity').val() != "") {
+                    ProductionDetails.push({
+                        ProductName: $('#sw5ml').val().trim(),                     
+                        Quantity: parseInt($('#sw5ml_quantity').val().trim())
+                    });
+                }
+
+                if ($('#sw1l_quantity').val() != "") {
+                    ProductionDetails.push({
+                        ProductName: $('#sw1l').val().trim(),
+                        Quantity: parseInt($('#sw1l_quantity').val().trim())
+                    });
+                }
+                if ($('#sw15l_quantity').val() != "") {
+                    ProductionDetails.push({
+                        ProductName: $('#sw15l').val().trim(),
+                        Quantity: parseInt($('#sw15l_quantity').val().trim())
+                    });
+                }
+                if ($('#sw2l_quantity').val() != "") {
+                    ProductionDetails.push({
+                        ProductName: $('#sw2l').val().trim(),
+                        Quantity: parseInt($('#sw2l_quantity').val().trim())
+                    });
+                }
+                if ($('#sw5l_quantity').val() != "") {
+                    ProductionDetails.push({
+                        ProductName: $('#sw5l').val().trim(),
+                        Quantity: parseInt($('#sw5l_quantity').val().trim())
+                    });
+                }
+                if ($('#sw20l_quantity').val() != "") {
+                    ProductionDetails.push({
+                        ProductName: $('#sw20l').val().trim(),
+                        Quantity: parseInt($('#sw20l_quantity').val().trim())
+                    });
+                }
+
+                var data = {
+                    ProductionShift: $('#ProductionShift').val(),
+                    ProductionDate: $('#ProductionDate').val(),
+                    ProductionDetails: ProductionDetails
+                }
+                $(this).val('Please wait...');
+
+                $.ajax({
+                    url: '/Production/AddProduction',
+                    type: "POST",
+                    data: JSON.stringify(data),
+                    dataType: "JSON",
+                    contentType: "application/json",
+                    success: function (d) {
+                        if (d.success == true) {
+                            alert(d.message);
+                            ProductionDetails = [];
+                        }
+                        else {
+                            alert(d.message);
+                            ProductionDetails = [];
+                        }
+                        $('#submit').val('Save');
+                    },
+                    error: function () {
+                        alert('Error. Please try again.');
+                        $('#submit').val('Save');
+                    }
+                });
+            }
+
+        });
+    });
+
+</script>

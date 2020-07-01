@@ -1,0 +1,297 @@
+﻿@model App.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+<div class="row">
+    <div class="col-xs-12 ">
+        <div class="widget-box">
+            <div class="widget-header">
+                <h4 class="widget-title">New User</h4>
+
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main">
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+                    {
+
+                        @Html.AntiForgeryToken()
+                        <input type="text" id="hidden_area" style="display:none;" />
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="widget-box">
+                                    <div class="widget-header">
+                                        <h4 class="widget-title">Create</h4>
+
+                                    </div>
+
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <div class="row">
+                                                @if (Model.UserName != null && Model.Email != null)
+                                                {
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-4 control-label"> Name</label>
+                                                            <div class="col-md-8">
+
+                                                                @Html.TextBoxFor(m => m.ac_id, new { @class = "form-control", type = "hidden" })
+                                                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
+                                                            <div class="col-md-8">
+                                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-sm-6">
+
+                                                        <div class="form-group">
+                                                            <div class="col-sm-4 col-sm-offset-4">
+
+                                                                <img id="hidden" src='@Url.Action( "Index", "File", new { id = Model.ac_id})' style="height:90px; width:120px; border:2px solid #808080; " />
+                                                                @*<img src='@Url.Action( "Index", "File", new { id = Model.ac_id})' style="height:40px; width:60px;" />*@
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-4 control-label no-padding-right" for="upfile"> Image</label>
+
+                                                            <div class="col-sm-8">
+                                                                <input onchange="changeimage(this)" type="file" name="ac_img" value="" class="upfile" id="ac_img" />
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <div class="col-sm-4 col-sm-offset-4">
+                                                                <input type="submit" class="btn-search" value="Update" />
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                }
+                                                else
+                                                {
+
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-4 control-label"> Name</label>
+                                                            <div class="col-md-8">
+                                                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
+                                                            <div class="col-md-8">
+                                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.Password, new { @class = "col-md-4 control-label" })
+                                                            <div class="col-md-8">
+                                                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", id= "Password" })
+                                                                <span class="password"></span>
+                                                                <span class="Password"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-4 control-label" })
+                                                            <div class="col-md-8">
+                                                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" , id= "ConfirmPassword" })
+                                                                <span class="ConfirmPassword "></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <div class="col-sm-4 col-sm-offset-4">
+                                                                <img id="hidden" src="~/Images/preview.jpg" style="height:90px; width:120px; border:2px solid #808080; " />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-4 control-label no-padding-right" for="upfile"> Image</label>
+
+                                                            <div class="col-sm-8">
+                                                                <input onchange="changeimage(this)" type="file" name="ac_img" value="" class="upfile" id="ac_img" />
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <div class="col-sm-4 col-sm-offset-4">
+                                                                <input type="submit" class="btn-search" value="Save" />
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.ApplicationUsers.Count > 0)
+{
+<div class="row">
+    <div class="col-xs-12 ">
+        <div class="widget-box">
+            <div class="widget-header">
+                <h4 class="widget-title">User List</h4>
+
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main">
+
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>UserName</td>
+                            <td>Email</td>
+                            <td >Image</td>
+                            <td>Action</td>
+                        </tr>
+                        @foreach (var user in Model.ApplicationUsers)
+                        {
+                            <tr>
+                                <td>@user.UserName</td>
+                                <td>@user.Email</td>
+                                <td > <img  src='@Url.Action("Index", "File", new { id = user.Id })' style="height:40px; width:60px;" /></td>
+                                <td>
+                                    <div class="hidden-sm hidden-xs action-buttons">
+
+
+                                        <a class="green" href="@Url.Action("Register", "Account", new { id = @user.Id })">
+                                            <i class="ace-icon fa fa-pencil bigger-130"></i>
+                                        </a>
+
+                                        <a class="red" style="cursor:pointer" onclick="Delete('@user.Id')">
+                                            <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                                        </a>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+
+
+
+<script>
+    jQuery(function ($) {
+
+
+        $('.upfile').ace_file_input({
+            no_file: 'No File ...',
+            btn_choose: 'Choose',
+            btn_change: 'Change',
+            droppable: false,
+            onchange: null,
+            thumbnail: false
+        });
+
+
+    });
+    function changeimage(change) {
+        if (change.files && change.files[0]) {
+            var input = new FileReader();
+            input.onload = function (e) {
+                document.getElementById('hidden').src = e.target.result;
+            }
+            input.readAsDataURL(change.files[0]);
+            $('#hidden').show();
+
+        }
+    }
+    var Password = $("#Password").val();
+    var ConfirmPassword = $("#ConfirmPassword").val();
+    $("#Password").on('keyup', function () {
+        var password = $(this).val();
+        var pattern = /^\b[A-Z0-9._%-]+[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
+        //if (!pattern.test(Password)) {
+        //    $(".Password").html("Password Must Be Capital Letter And Spacial Character !").css({ "color": "Red", "font-weight": "bold" });
+        //}
+     if (password.length <= 2) {
+
+         $(".Password").html("Password length between 4 to 8 characters! And Must Be Capital Letter And Spacial Character !").css({ "color": "Red", "font-weight": "bold" });
+
+        }
+        else if (password.length <= 4) {
+            $(".Password").html("Week").css({ "color": "Red", "font-weight": "bold" });
+        }
+        else if (password.length <= 6) {
+            $(".Password").html("Medum").css({ "color": "yellow", "font-weight": "bold" });
+        }
+        else if (password.length  >= 8) {
+            $(".Password").html("Strong").css({ "color": "Green", "font-weight": "bold" }).fadeOut(2000);
+        }
+        $("#ConfirmPassword").on('keyup', function () {
+
+            var confirmPassword = $(this).val();
+            var Password = $("#Password").val();
+            
+            if (Password == "") {
+                $("#Password").focus();
+                $(".ConfirmPassword").html("Password is required").css({ "color": "#990000", "font-weight": "bold" });
+            }
+            else if (Password != confirmPassword) {
+                $(".ConfirmPassword").html("Password and Confirm Password Mismatch!").css({"color": "#990000", "font-weight": "bold" });
+
+            }
+            else if (Password === confirmPassword) {
+                $(".ConfirmPassword").html("Password and Confirm Password Match").css({ "color": "Green", "font-weight": "bold" }).fadeOut(2000);
+            }
+
+        })
+
+
+
+    });
+    function Delete(Id) {
+        if (confirm('Are you sure to delete the record?')) {
+            var del_info = {
+                Id: Id
+            };
+            $.ajax({
+                url: "/Account/Delete/",
+                data: JSON.stringify(del_info),
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    alert(result.message)
+                    location.href = "/Account/Register";
+                },
+                error: function (em) {
+                    alert(em.responseText);
+                }
+            });
+        }
+    }
+</script>
+
+
+
+

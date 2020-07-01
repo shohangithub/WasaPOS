@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DueCollectionDataSet" targetNamespace="http://tempuri.org/DueCollectionDataSet.xsd" xmlns:mstns="http://tempuri.org/DueCollectionDataSet.xsd" xmlns="http://tempuri.org/DueCollectionDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="ShantiPOS" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ShantiPOS (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.ShantiPOS.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DueCollectionDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DueCollectionDataSet" msprop:Generator_UserDSName="DueCollectionDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DueTransactions" msprop:Generator_TableClassName="DueTransactionsDataTable" msprop:Generator_TableVarName="tableDueTransactions" msprop:Generator_TablePropName="DueTransactions" msprop:Generator_RowDeletingName="DueTransactionsRowDeleting" msprop:Generator_RowChangingName="DueTransactionsRowChanging" msprop:Generator_RowEvHandlerName="DueTransactionsRowChangeEventHandler" msprop:Generator_RowDeletedName="DueTransactionsRowDeleted" msprop:Generator_UserTableName="DueTransactions" msprop:Generator_RowChangedName="DueTransactionsRowChanged" msprop:Generator_RowEvArgName="DueTransactionsRowChangeEvent" msprop:Generator_RowClassName="DueTransactionsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DueTransactionId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnDueTransactionId" msprop:Generator_ColumnPropNameInRow="DueTransactionId" msprop:Generator_ColumnPropNameInTable="DueTransactionIdColumn" msprop:Generator_UserColumnName="DueTransactionId" type="xs:long" />
+              <xs:element name="DueTR_Id" msprop:Generator_ColumnVarNameInTable="columnDueTR_Id" msprop:Generator_ColumnPropNameInRow="DueTR_Id" msprop:Generator_ColumnPropNameInTable="DueTR_IdColumn" msprop:Generator_UserColumnName="DueTR_Id" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ContactPerson" msdata:Caption="TrType" msprop:Generator_ColumnVarNameInTable="columnContactPerson" msprop:Generator_ColumnPropNameInRow="ContactPerson" msprop:Generator_ColumnPropNameInTable="ContactPersonColumn" msprop:Generator_UserColumnName="ContactPerson" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CustomerName" msdata:Caption="CustomerId" msprop:Generator_ColumnVarNameInTable="columnCustomerName" msprop:Generator_ColumnPropNameInRow="CustomerName" msprop:Generator_ColumnPropNameInTable="CustomerNameColumn" msprop:Generator_UserColumnName="CustomerName" type="xs:long" />
+              <xs:element name="Phone" msdata:Caption="TrDescription" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_UserColumnName="Phone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PaymentDate" msprop:Generator_ColumnVarNameInTable="columnPaymentDate" msprop:Generator_ColumnPropNameInRow="PaymentDate" msprop:Generator_ColumnPropNameInTable="PaymentDateColumn" msprop:Generator_UserColumnName="PaymentDate" type="xs:dateTime" />
+              <xs:element name="InAmount" msprop:Generator_ColumnVarNameInTable="columnInAmount" msprop:Generator_ColumnPropNameInRow="InAmount" msprop:Generator_ColumnPropNameInTable="InAmountColumn" msprop:Generator_UserColumnName="InAmount" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DueTransactions" />
+      <xs:field xpath="mstns:DueTransactionId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

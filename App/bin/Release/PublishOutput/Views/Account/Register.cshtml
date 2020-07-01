@@ -1,0 +1,155 @@
+﻿@model App.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>POS (Point Of Sales) Software</title>
+    <style type="text/css">
+        .col-md-6 {
+            width: 41%;
+        }
+
+        .body {
+            background: repeating-linear-gradient(#99ccff, #ffffff 25%, #99ccff 100%) fixed;
+            min-height: 100%;
+            min-width: 100%;
+        }
+
+        .logo {
+            background: rgba(0, 0, 0, 0) url("../Images/logo.jpg") no-repeat scroll 0 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px;
+            height: 110px;
+            margin-left: 50px;
+            margin-top: 10px;
+            width: 110px;
+        }
+
+            .logo img {
+                width: 100%;
+            }
+
+        .hr {
+            height: 20px;
+            background-color: #333333;
+            width: 95%;
+            margin: auto;
+            margin-top: 10px;
+            border-radius: 5px;
+            box-shadow: 4px 4px 7px;
+        }
+
+        .girl-image {
+            background: url(../Images/allBottled.png) no-repeat;
+            height: 500px;
+            width: 700px;
+            margin-top: 10px;
+        }
+
+        .login {
+            background: rgba(0, 0, 0, 0) linear-gradient(45deg, rgba(152, 207, 222, 1) 0%, rgba(218, 238, 243, 1) 50%, rgba(152, 207, 222, 1) 100%) repeat scroll 0 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px;
+            margin-top: 45px;
+        }
+
+        .padding {
+            padding: 68px 68px 14px;
+        }
+
+        .text-box {
+            background-color: #3f2b78;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 54px 52px;
+            color: #fff;
+            font-size: 20px;
+            margin-left: -15px;
+            padding: 10px;
+            text-align: center;
+            width: 240px;
+        }
+
+        .slogan h2 {
+            font-family: Verdana,Geneva,sans-serif;
+            margin-top: 76px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body class="body">
+    <div class="row" style="margin-left:0px;margin-right:0px;">
+        <div class="col-md-12">
+            <div class="col-md-2">
+                <div class="logo img-responsive">
+
+                    <img src="~/Images/logo.png" />
+                </div>
+            </div>
+            <div class="col-md-10" align="center" style="padding-left:0px;">
+                <div class="slogan">
+                    <h2> POS (Point Of Sales) Software</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hr"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="girl-image img-responsive">
+
+                </div>
+            </div>
+            <div class="col-md-5  login">
+                <div class="text-box pull-left">Register</div>
+              @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+              {
+                @Html.AntiForgeryToken()
+                <h4>Create a new account.</h4>
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-default" value="Register" />
+                    </div>
+                </div>
+              }
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

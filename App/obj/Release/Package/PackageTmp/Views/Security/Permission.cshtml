@@ -1,0 +1,234 @@
+﻿@model IEnumerable<Model.Entities.ViewMenuPermission>
+@{
+    ViewBag.Title = "Menu Tab";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var data = Model.Select(x => new { MenuId = x.MenuId, MenuName = x.MenuName, MenuOrderNo = x.MenuOrderNo }).Distinct();
+}
+<link href="../Content/css/light/core.css" rel="stylesheet" type="text/css" />
+<link href="../Content/css/light/info.css" rel="stylesheet" type="text/css" />
+<link href="../Content/css/form.css" rel="stylesheet" type="text/css" />
+<link href="../Content/css/jquery-ui-1.11.3.custom.min.css" rel="stylesheet" />
+<link href="../Content/css/jquery-ui-app.css" rel="stylesheet" />
+<link href="../Content/css/light/Form.css" rel="Stylesheet" type="text/css" />
+
+<style>
+    #tabs-1 div.middle_form {
+        float: left;
+        margin-right: 70px;
+        width: 20%;
+    }
+
+    .menutab {
+        list-style: none;
+        background-color: #89b03e;
+        padding: 5px 12px;
+        font-size: 1.2em;
+        font-weight: bold;
+        border: 1px solid white;
+        cursor: pointer;
+    }
+    label{display:grid !important;}
+
+        .menutab:hover {
+            background-color: rgba(110, 177, 62, 1);
+        }
+
+    div.middle_form div.body div.left {
+        float: left;
+        width: 100%;
+    }
+
+    #leftList {
+        list-style-type: none;
+        font-weight: bold;
+    }
+
+    #rightList {
+        list-style-type: none;
+        font-weight: bold;
+    }
+
+        #rightList > li > label, #leftList > li > label {
+            vertical-align: top;
+            font-size: 14px;
+            /*padding-top: 12px;*/
+        }
+</style>
+<script>
+    $(document).ready(function () {
+        $(".menutab").on("click", function () {
+            var id = $(this).attr("id");
+            var userId = $("#UserId").val();
+            if (userId == "") {
+                alert("Please select a user.");
+                return;
+            }
+            $(".menutab").css("background-color", "#89b03e");
+            $('#' + id).css("background-color", "rgba(110, 177, 62, 1)");
+
+            var data = {
+                MenuId: id,
+                UserId: userId
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "../Security/LoadPage",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                success: function (data) {
+                    $("#leftList>li").remove();
+                    $("#rightList>li").remove();
+                    for (var i = 0; i < data.newdata.length; i++) {
+                        if (i % 2 == 0) {
+                            $("#leftList").append('<li><input type="checkbox" class="pagelist" value="' + data.newdata[i].ViewId + '"/><label>' + data.newdata[i].PageName + '</label></li>');
+                        } else {
+                            $("#rightList").append('<li><input type="checkbox" class="pagelist" value="' + data.newdata[i].ViewId + '"/><label>' + data.newdata[i].PageName + '</label></li>');
+                        }
+                    }
+                    for (var i = 0; i < data.existdata.length; i++) {
+                        $('.pagelist[value="' + data.existdata[i].ViewId + '"]').prop('checked', true);
+                    }
+
+                    $("#loading").hide();
+                    $('.menutab').removeClass("active");
+                    $('#' + id).addClass("active");
+                    $("#UserId").attr("readonly", true);
+
+                },
+                error: function () {
+                    $("#loading").hide();
+                    alert('Load Failed!');
+                }
+            });
+
+        });
+        $(document).on("click", "input:checkbox", function () {
+            var ViewId = $(this).val();
+            var MenuId = $('#menutab>ul>li.active').attr("id");
+            var UserId = $('#UserId').val();
+            if (UserId == "") {
+                alert("Please select a user.");
+                return;
+            }
+            var Status;
+            if (this.checked) {
+                Status = "Active";
+            } else {
+                Status = "Inactive";
+            }
+            var data = {
+                ViewId: ViewId,
+                MenuId: MenuId,
+                UserId: UserId,
+                PermissionStatus: Status
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "../Security/SetViewPermission",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                success: function (data) {
+                    $("#loading").hide();
+                },
+                error: function () {
+                    $("#loading").hide();
+                    alert('view added Failed!');
+                }
+            });
+        });
+
+        $(document).on("change", "#UserId", function () {
+            $("#leftList,#rightList").html("");
+        });
+    });
+</script>
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="page_menu" id="page_menu">
+        <h2>Permission</h2>
+    </div>
+
+    <div class="tabContent">
+        <div id="tabs" class="clearfix moderntabs">
+            <div id="tabs-1">
+                <div id="id_all" class="col-md-12 col-sm-12">
+                    <div class="col-md-12 col-sm-12">
+                        <div style="padding-left:35%;padding-right:20%;">
+                            <span style="font-weight:600;font-size:large">User:</span>
+                            @Html.DropDownList("UserId", (SelectList)ViewData["User"], "Select", new { id = "UserId", @class = "my_select", style = "width:228px;border:1px solid #c8d3df;border-radius:2px;padding:7px !important;" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="col-md-4 col-sm-4">
+
+                        <div class="body">
+
+                            <div class="full clearfix">
+
+                                <div class="left" id="menutab">
+
+                                    <ul>
+                                        @if (data.Count() > 0)
+                                        {
+                                            foreach (var item in data.OrderBy(x => x.MenuOrderNo))
+                                            {
+                                                <li id="@item.MenuId" class="menutab">@item.MenuName</li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 pagesection">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            @*<input type="checkbox" id="set_form" value="Individual" />*@@*<span style="font-weight:bold;font-size:16px;">Individual part</span>*@
+
+
+                            <div class="body">
+                                <div class="full clearfix" id="PageSectionLeft">
+                                    <ul id="leftList"></ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="body">
+                                <div class="full clearfix" id="pagesectionRight">
+                                    <ul id="rightList"></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+        $(document).ready(function () {
+            $(".ui-dialog-titlebar-close").on("click", function () {
+                $("#MenuName").val("");
+                $("#MenuOrderNo").val("");
+                $("#Status").val("");
+
+            });
+            $("#close").on("click", function () {
+                $("#dialogSupplier").dialog('close');
+                $("#MenuName").val("");
+                $("#MenuOrderNo").val("");
+                $("#Status").val("");
+            });
+        });
+    </script>

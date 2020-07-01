@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="VatDataset" targetNamespace="http://tempuri.org/VatDataset.xsd" xmlns:mstns="http://tempuri.org/VatDataset.xsd" xmlns="http://tempuri.org/VatDataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="DefaultConnection" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DefaultConnection (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.DefaultConnection.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SalesTableAdapter" GeneratorDataComponentClassName="SalesTableAdapter" Name="Sales" UserDataComponentName="SalesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="WasaPOS.dbo.Sales" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Sales.SaleDate,datename(MONTH,Sales.SaleDate)MonthNames,datename(YEAR,Sales.SaleDate)YearName,Count(InvoiceId)InvoiceId, Sum(Sales.STAmount)STAmount, Sum(Sales.TSSD)TSSD,Sum(Sales.TSVat)TSVat, Sum(Sales.TransportCost)TransportCost, Sum(Sales.Discount)Discount, Sum(Sales.CashReceive)CashReceive, Sum(Sales.DueAmount)DueAmount,Sum(Sales.OtherCost)OtherCost,  Sum(Sales.NetTotal)NetTotal  FROM Sales group by  Sales.SaleDate</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SaleDate" DataSetColumn="SaleDate" />
+              <Mapping SourceColumn="MonthNames" DataSetColumn="MonthNames" />
+              <Mapping SourceColumn="YearName" DataSetColumn="YearName" />
+              <Mapping SourceColumn="InvoiceId" DataSetColumn="InvoiceId" />
+              <Mapping SourceColumn="STAmount" DataSetColumn="STAmount" />
+              <Mapping SourceColumn="TSSD" DataSetColumn="TSSD" />
+              <Mapping SourceColumn="TSVat" DataSetColumn="TSVat" />
+              <Mapping SourceColumn="TransportCost" DataSetColumn="TransportCost" />
+              <Mapping SourceColumn="Discount" DataSetColumn="Discount" />
+              <Mapping SourceColumn="CashReceive" DataSetColumn="CashReceive" />
+              <Mapping SourceColumn="DueAmount" DataSetColumn="DueAmount" />
+              <Mapping SourceColumn="OtherCost" DataSetColumn="OtherCost" />
+              <Mapping SourceColumn="NetTotal" DataSetColumn="NetTotal" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="VatDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="VatDataset" msprop:Generator_UserDSName="VatDataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Sales" msprop:Generator_TableClassName="SalesDataTable" msprop:Generator_TableVarName="tableSales" msprop:Generator_RowChangedName="SalesRowChanged" msprop:Generator_TablePropName="Sales" msprop:Generator_RowDeletingName="SalesRowDeleting" msprop:Generator_RowChangingName="SalesRowChanging" msprop:Generator_RowEvHandlerName="SalesRowChangeEventHandler" msprop:Generator_RowDeletedName="SalesRowDeleted" msprop:Generator_RowClassName="SalesRow" msprop:Generator_UserTableName="Sales" msprop:Generator_RowEvArgName="SalesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SaleDate" msprop:Generator_ColumnVarNameInTable="columnSaleDate" msprop:Generator_ColumnPropNameInRow="SaleDate" msprop:Generator_ColumnPropNameInTable="SaleDateColumn" msprop:Generator_UserColumnName="SaleDate" type="xs:dateTime" />
+              <xs:element name="MonthNames" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMonthNames" msprop:Generator_ColumnPropNameInRow="MonthNames" msprop:Generator_ColumnPropNameInTable="MonthNamesColumn" msprop:Generator_UserColumnName="MonthNames" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="YearName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnYearName" msprop:Generator_ColumnPropNameInRow="YearName" msprop:Generator_ColumnPropNameInTable="YearNameColumn" msprop:Generator_UserColumnName="YearName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InvoiceId" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInvoiceId" msprop:Generator_ColumnPropNameInRow="InvoiceId" msprop:Generator_ColumnPropNameInTable="InvoiceIdColumn" msprop:Generator_UserColumnName="InvoiceId" type="xs:int" minOccurs="0" />
+              <xs:element name="STAmount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSTAmount" msprop:Generator_ColumnPropNameInRow="STAmount" msprop:Generator_ColumnPropNameInTable="STAmountColumn" msprop:Generator_UserColumnName="STAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TSSD" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTSSD" msprop:Generator_ColumnPropNameInRow="TSSD" msprop:Generator_ColumnPropNameInTable="TSSDColumn" msprop:Generator_UserColumnName="TSSD" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TSVat" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTSVat" msprop:Generator_ColumnPropNameInRow="TSVat" msprop:Generator_ColumnPropNameInTable="TSVatColumn" msprop:Generator_UserColumnName="TSVat" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TransportCost" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTransportCost" msprop:Generator_ColumnPropNameInRow="TransportCost" msprop:Generator_ColumnPropNameInTable="TransportCostColumn" msprop:Generator_UserColumnName="TransportCost" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Discount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDiscount" msprop:Generator_ColumnPropNameInRow="Discount" msprop:Generator_ColumnPropNameInTable="DiscountColumn" msprop:Generator_UserColumnName="Discount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CashReceive" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCashReceive" msprop:Generator_ColumnPropNameInRow="CashReceive" msprop:Generator_ColumnPropNameInTable="CashReceiveColumn" msprop:Generator_UserColumnName="CashReceive" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DueAmount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDueAmount" msprop:Generator_ColumnPropNameInRow="DueAmount" msprop:Generator_ColumnPropNameInTable="DueAmountColumn" msprop:Generator_UserColumnName="DueAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OtherCost" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOtherCost" msprop:Generator_ColumnPropNameInRow="OtherCost" msprop:Generator_ColumnPropNameInTable="OtherCostColumn" msprop:Generator_UserColumnName="OtherCost" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NetTotal" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNetTotal" msprop:Generator_ColumnPropNameInRow="NetTotal" msprop:Generator_ColumnPropNameInTable="NetTotalColumn" msprop:Generator_UserColumnName="NetTotal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Month" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_UserColumnName="Month" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

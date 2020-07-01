@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="WaterProductionDataSet" targetNamespace="http://tempuri.org/WaterProductionDataSet.xsd" xmlns:mstns="http://tempuri.org/WaterProductionDataSet.xsd" xmlns="http://tempuri.org/WaterProductionDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="ShantiPOS" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ShantiPOS (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.ShantiPOS.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="WaterProductionDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="WaterProductionDataSet" msprop:Generator_UserDSName="WaterProductionDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="WaterProduction" msprop:Generator_TableClassName="WaterProductionDataTable" msprop:Generator_TableVarName="tableWaterProduction" msprop:Generator_TablePropName="WaterProduction" msprop:Generator_RowDeletingName="WaterProductionRowDeleting" msprop:Generator_RowChangingName="WaterProductionRowChanging" msprop:Generator_RowEvHandlerName="WaterProductionRowChangeEventHandler" msprop:Generator_RowDeletedName="WaterProductionRowDeleted" msprop:Generator_UserTableName="WaterProduction" msprop:Generator_RowChangedName="WaterProductionRowChanged" msprop:Generator_RowEvArgName="WaterProductionRowChangeEvent" msprop:Generator_RowClassName="WaterProductionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ProductionDetailId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProductionDetailId" msprop:Generator_ColumnPropNameInRow="ProductionDetailId" msprop:Generator_ColumnPropNameInTable="ProductionDetailIdColumn" msprop:Generator_UserColumnName="ProductionDetailId" type="xs:long" />
+              <xs:element name="ProductionDate" msdata:Caption="ProductionId" msprop:Generator_ColumnVarNameInTable="columnProductionDate" msprop:Generator_ColumnPropNameInRow="ProductionDate" msprop:Generator_ColumnPropNameInTable="ProductionDateColumn" msprop:Generator_UserColumnName="ProductionDate" type="xs:long" />
+              <xs:element name="Size" msdata:Caption="ProductId" msprop:Generator_ColumnVarNameInTable="columnSize" msprop:Generator_ColumnPropNameInRow="Size" msprop:Generator_ColumnPropNameInTable="SizeColumn" msprop:Generator_UserColumnName="Size" type="xs:long" />
+              <xs:element name="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_UserColumnName="Quantity" type="xs:int" />
+              <xs:element name="QtyCase" msprop:Generator_ColumnVarNameInTable="columnQtyCase" msprop:Generator_ColumnPropNameInRow="QtyCase" msprop:Generator_ColumnPropNameInTable="QtyCaseColumn" msprop:Generator_UserColumnName="QtyCase" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Litter" msprop:Generator_ColumnVarNameInTable="columnLitter" msprop:Generator_ColumnPropNameInRow="Litter" msprop:Generator_ColumnPropNameInTable="LitterColumn" msprop:Generator_UserColumnName="Litter" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:WaterProduction" />
+      <xs:field xpath="mstns:ProductionDetailId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

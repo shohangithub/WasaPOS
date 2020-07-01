@@ -1,0 +1,95 @@
+﻿@model Models.Tbl_Module
+@{
+    ViewBag.Title = "Module";
+    Layout = "~/Views/Shared/_SecurityLayout.cshtml";
+}
+<div class="right_col" role="main">
+
+        <div class="clearfix" id="succMsg" style="text-align:center;padding-top:7px;"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Module List @*<small>different form elements</small>*@</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix" id="succMsg" style="text-align:center;padding-top:7px;"></div>
+                    </div>
+                    <div class="x_content" id="tableSection">
+                        @{Html.RenderAction("_PartialModuleList", "Security");}
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Add Module<small>Create new Module</small></h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content" id="contactFormArea">
+                        <br />
+                        <form id="mainform" data-parsley-validate class="form-horizontal form-label-left">
+                            <div class="form-group">
+                                @Html.HiddenFor(x => x.ModuleId)
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                    Name <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.TextBoxFor(x => x.ModuleName, new { @class = "form-control col-md-7 col-xs-12", required = "required" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                    Order No <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.TextBoxFor(x => x.ModuleOrderNo, new { @class = "form-control col-md-7 col-xs-12", required = "required" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                                    Status <span class="required">*</span>
+                                </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <div class="radio-custom">
+                                        @Html.RadioButtonFor(x => x.ModuleStatus, true, new { id = "radio1" })
+                                        <label for="radio1"><i class="fa fa-check" aria-hidden="true"></i></label>
+                                        @Html.RadioButtonFor(x => x.ModuleStatus, false, new { id = "radio2" })
+                                        <label for="radio2"><i class="fa fa-circle-thin" aria-hidden="true"></i></label>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button type="button" class="btn btn-primary" id="clearBtn">Clear</button>
+                                    <button type="button" class="btn btn-success" id="btnSubmit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            AddUrl("/Security/AddModule", "/Security/_PartialModuleList");
+            EditUrl("Module", "/Security/FindModulebyId");
+            DeleteUrl("/Security/DeleteModule", "/Security/_PartialModuleList");
+        });
+    </script>
+}

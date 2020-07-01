@@ -1,0 +1,255 @@
+﻿
+@model IEnumerable<Model.Entities.Product>
+
+@{
+    ViewBag.Title = "NewProduct";
+}
+
+<div class="col-xs-12 ">
+    <div class="widget-box">
+
+
+        <div class="widget-body">
+            <div class="widget-main">
+                <form class="form-horizontal" role="form">
+                    <input type="hidden" id="hidden_area" />
+                    <div class="row">
+                        <div class="col-xs-12 ">
+                            <div class="widget-box ">
+
+                                <div class="widget-header">
+                                    <h4 class="widget-title">Production Information</h4>
+
+                                    <div class="widget-toolbar">
+                                        <a href="#" data-action="collapse">
+                                            <i class="ace-icon fa fa-chevron-up"></i>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="widget-body">
+                                    <div class="widget-main">
+
+                                        <div class="row">
+                                            <div class="col-sm-6">
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="code"> Code</label>
+
+                                                    <div class="col-sm-9">
+
+                                                        <input type="text" id="code" class="form-control" value="" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="product_name">Product Name</label>
+
+                                                    <div class="col-sm-9">
+                                                        <input type="text" id="product_name" placeholder="Product Name" class="form-control" />
+                                                       
+                                                    </div>
+                                                </div>
+                                               
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="size">Size</label>
+
+                                                    <div class="col-sm-9">
+                                                        <select class="selectpicker form-control" id="size">
+                                                        <option value="">Select</option>
+                                                        <option value="25 ML">25 ML</option>
+                                                        <option value="0.5 L">0.5 L</option>
+                                                        <option value="1.0 L">1.0 L</option>
+                                                        <option value="1.5 L">1.5 L</option>
+                                                        <option value="2.0 L">2.0 L</option>
+                                                        <option value="5.0 L">5.0 L</option>
+                                                        <option value="20.0 L 30TK ">20.0 L 30TK</option>
+                                                        <option value="20.0 L 40TK">20.0 L 40TK</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="contact_persion">Unit</label>
+
+                                                    <div class="col-sm-9">
+                                                        <select class=" form-control" id="unit">
+                                                            <option value="">Select</option>
+                                                            <option value="Pc">Pc</option>
+                                                            <option value="Kg">Kg</option>
+                                                            <option value="gm">gm</option>
+                                                            
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="address">Cost Price(Tk.):</label>
+
+                                                    <div class="col-sm-9">
+
+                                                        <input  type="text" id="cost_price" placeholder="Cost Price" class="form-control " />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="sale_price">Sales Price(Tk):</label>
+
+                                                    <div class="col-sm-9">
+                                                        <input type="date" id="sale_price" class="form-control" value=""  />
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <div class="col-sm-3 col-sm-offset-9">
+
+                                                        <button type="button" class="btn-save " id="btnAdd" onclick="Create();">Save</button>
+                                                        <button type="button" class="btn-update" style="display:none;" id="btnUp" onclick=" Update();">Update</button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                <div class="row">
+                    <div class="col-xs-12">
+
+                        <div class="clearfix">
+                            <div class="pull-right tableTools-container"></div>
+                        </div>
+                        <div class="table-header btn-custom">
+
+                            Existing Production
+
+                        </div>
+
+                        <div id="after_create">
+                            <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name </th>
+                                        <th>Size </th>
+                                        <th>Unit </th>
+                                        <th>Cost Price(Tk.) </th>
+                                        <th>Sales Price(Tk.) </th>
+                                       
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @if (Model.Count() > 0)
+                                        {
+                                            foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    
+                                                    <td>@item.ProductName</td>
+                                                    <td>@item.Size</td>
+                                                    <td>@item.Uint</td>
+                                                    <td>@item.CostPrice</td>
+                                                    <td>@item.FacePrice</td>
+
+                                                    
+                                                    @*<td>
+                                                        @if (@item.Status == "P")
+                                                    {
+                                                        <span class="label label-sm label-warning">Pending</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="label label-sm label-success">Approved</span>
+                                                    }
+                                                </td>
+                                                <td>
+
+                                                    <a class="green" style="cursor:pointer" onclick="return getById('  @item.LTId ')">
+                                                        <i class="ace-icon fa fa-pencil bigger-130"></i>
+                                                    </a>
+
+                                                    <a class="red" style="cursor:pointer" onclick="DeleteLT('@item.LTId')">
+                                                        <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                                                    </a>
+                                                </td>*@
+
+                                            </tr>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td class="number" colspan="5"><h4>No Data Available!</h4></td>
+                                            </tr>
+                                        }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+   function Create() {
+       var product_name = $("#product_name").val();
+      
+       var size = $("#size").val();
+       var unit = $("#unit").val();
+       var cost_price = $("#cost_price").val();
+       var sale_price = $("#sale_price").val();
+    
+        if (product_name == "") {
+            alert("Product field are required.");
+        }
+       
+        if (cost_price == "") {
+            alert(" Cost Price are required.");
+        }
+        else {
+            var obj = {
+                "product_name": $('#product_name').val(),
+               
+                "size": $('#size').val(),
+                "unit": $('#unit').val(),
+                "cost_price": $('#cost_price').val(),
+                "sale_price": $('#sale_price').val(),
+             
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Product/AddProduct",
+                data: JSON.stringify(obj),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                success: function (data, textStatus) {
+                    alert(data.message);
+                    $('#after_create').load('@Url.Action("ProductList", "Product")');
+                    $("#product_name").val("");
+                   
+                    $("#size").val("");
+                    $("#unit").val("");
+                    $("#cost_price").val("");
+                    $("#sale_price").val("");
+                 
+                },
+                error: function () {
+                    alert(' Creation Failed!');
+                }
+            });
+        }
+    }
+
+</script>

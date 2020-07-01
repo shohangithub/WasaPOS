@@ -1,0 +1,883 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{744ABA4F-8F72-477A-9AB8-F9D9C7FE933F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>App</RootNamespace>
+    <AssemblyName>App</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.7\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.3.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.3.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.3.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.3.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.3.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.3.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.VS2010.10.0.40219.1\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.VS2010.10.0.40219.1\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RDLCReportRunner, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RDLCReportRunner.1.0.0\lib\RDLCReportRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductionController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\SaleController.cs" />
+    <Compile Include="Controllers\SalesPrintReportController.cs" />
+    <Compile Include="Controllers\SecurityController.cs" />
+    <Compile Include="DataSet\BottleAndJarDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BottleAndJarDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\ChalanAndGetpass.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChalanAndGetpass.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DailySalesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DailySalesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DueCollectionDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DueCollectionDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DueList.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DueList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\GatePassDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GatePassDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\ProductionStatementDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductionStatementDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\ProductStockDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductStockDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\SaleAndPrint.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SaleAndPrint.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\SaleRecordDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SaleRecordDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\VatDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VatDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\WaterProductionDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WaterProductionDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\WaterSaleCustomerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WaterSaleCustomerDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\WaterSalesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WaterSalesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\WaterSaleUserDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WaterSaleUserDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\CheckAuthorization.cs" />
+    <Compile Include="Helper\Menu.cs" />
+    <Compile Include="Helper\SessionalData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap-select.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Selectize\css\selectize.bootstrap2.css" />
+    <Content Include="Content\Selectize\css\selectize.bootstrap3.css" />
+    <Content Include="Content\Selectize\css\selectize.css" />
+    <Content Include="Content\Selectize\css\selectize.default.css" />
+    <Content Include="Content\Selectize\css\selectize.legacy.css" />
+    <Content Include="Content\Selectize\js\selectize.js" />
+    <Content Include="Content\Selectize\js\selectize.min.js" />
+    <Content Include="Content\Selectize\js\standalone\selectize.js" />
+    <Content Include="Content\Selectize\js\standalone\selectize.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="DataSet\SaleAndPrint.xsc">
+      <DependentUpon>SaleAndPrint.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\ProductStockDataSet.xsc">
+      <DependentUpon>ProductStockDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Content\Selectize\less\selectize.less" />
+    <Content Include="Content\Selectize\less\selectize.legacy.less" />
+    <Content Include="Content\Selectize\less\selectize.default.less" />
+    <Content Include="Content\Selectize\less\selectize.bootstrap3.less" />
+    <Content Include="Content\Selectize\less\selectize.bootstrap2.less" />
+    <Content Include="Content\Selectize\less\plugins\remove_button.less" />
+    <Content Include="Content\Selectize\less\plugins\optgroup_columns.less" />
+    <Content Include="Content\Selectize\less\plugins\dropdown_header.less" />
+    <Content Include="Content\Selectize\less\plugins\drag_drop.less" />
+    <Content Include="DataSet\ChalanAndGetpass.xsc">
+      <DependentUpon>ChalanAndGetpass.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\BottleAndJarDataSet.xsc">
+      <DependentUpon>BottleAndJarDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\BottleAndJarDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BottleAndJarDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\BottleAndJarDataSet.xss">
+      <DependentUpon>BottleAndJarDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\ChalanAndGetpass.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ChalanAndGetpass.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\ChalanAndGetpass.xss">
+      <DependentUpon>ChalanAndGetpass.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\DueList.xsc">
+      <DependentUpon>DueList.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\DueCollectionDataSet.xsc">
+      <DependentUpon>DueCollectionDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\DailySalesDataSet.xsc">
+      <DependentUpon>DailySalesDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\DailySalesDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DailySalesDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\DailySalesDataSet.xss">
+      <DependentUpon>DailySalesDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\DueCollectionDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DueCollectionDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\DueCollectionDataSet.xss">
+      <DependentUpon>DueCollectionDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\DueList.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DueList.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\DueList.xss">
+      <DependentUpon>DueList.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\GatePassDataSet.xsc">
+      <DependentUpon>GatePassDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\GatePassDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GatePassDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\GatePassDataSet.xss">
+      <DependentUpon>GatePassDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\ProductionStatementDataSet.xsc">
+      <DependentUpon>ProductionStatementDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\ProductionStatementDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProductionStatementDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\ProductionStatementDataSet.xss">
+      <DependentUpon>ProductionStatementDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\ProductStockDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProductStockDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\ProductStockDataSet.xss">
+      <DependentUpon>ProductStockDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\SaleAndPrint.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SaleAndPrint.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\SaleAndPrint.xss">
+      <DependentUpon>SaleAndPrint.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\SaleRecordDataSet.xsc">
+      <DependentUpon>SaleRecordDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\SaleRecordDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SaleRecordDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\SaleRecordDataSet.xss">
+      <DependentUpon>SaleRecordDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\WaterProductionDataSet.xsc">
+      <DependentUpon>WaterProductionDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\VatDataset.xsc">
+      <DependentUpon>VatDataset.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\VatDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VatDataset.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\VatDataset.xss">
+      <DependentUpon>VatDataset.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\WaterProductionDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WaterProductionDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\WaterProductionDataSet.xss">
+      <DependentUpon>WaterProductionDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\WaterSalesDataSet.xsc">
+      <DependentUpon>WaterSalesDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\WaterSaleCustomerDataSet.xsc">
+      <DependentUpon>WaterSaleCustomerDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\WaterSaleCustomerDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WaterSaleCustomerDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\WaterSaleCustomerDataSet.xss">
+      <DependentUpon>WaterSaleCustomerDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\WaterSalesDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WaterSalesDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\WaterSalesDataSet.xss">
+      <DependentUpon>WaterSalesDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet\WaterSaleUserDataSet.xsc">
+      <DependentUpon>WaterSaleUserDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\WaterSaleUserDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WaterSaleUserDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\WaterSaleUserDataSet.xss">
+      <DependentUpon>WaterSaleUserDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="icon.ico" />
+    <Content Include="Images\allBottled.png" />
+    <Content Include="Images\loader.gif" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\noimagefound.jpg" />
+    <Content Include="Images\preview.jpg" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap-select.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.11.1.js" />
+    <Content Include="Scripts\jquery-ui.min-1.11.1.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Theme\css\ace-ie.min.css" />
+    <Content Include="Theme\css\ace-part2.min.css" />
+    <Content Include="Theme\css\ace-rtl.min.css" />
+    <Content Include="Theme\css\ace-skins.min.css" />
+    <Content Include="Theme\css\ace.min.css" />
+    <Content Include="Theme\css\bootstrap-colorpicker.min.css" />
+    <Content Include="Theme\css\bootstrap-datepicker3.min.css" />
+    <Content Include="Theme\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Theme\css\bootstrap-duallistbox.min.css" />
+    <Content Include="Theme\css\bootstrap-editable.min.css" />
+    <Content Include="Theme\css\bootstrap-multiselect.min.css" />
+    <Content Include="Theme\css\bootstrap-timepicker.min.css" />
+    <Content Include="Theme\css\bootstrap.min.css" />
+    <Content Include="Theme\css\chosen.min.css" />
+    <Content Include="Theme\css\colorbox.min.css" />
+    <Content Include="Theme\css\daterangepicker.min.css" />
+    <Content Include="Theme\css\dropzone.min.css" />
+    <Content Include="Theme\css\font-awesome.min.css" />
+    <Content Include="Theme\css\fonts.googleapis.com.css" />
+    <Content Include="Theme\css\fullcalendar.min.css" />
+    <Content Include="Theme\css\jquery-ui.custom.min.css" />
+    <Content Include="Theme\css\jquery-ui.min.css" />
+    <Content Include="Theme\css\jquery.gritter.min.css" />
+    <Content Include="Theme\css\prettify.min.css" />
+    <Content Include="Theme\css\select2.min.css" />
+    <Content Include="Theme\css\ui.jqgrid.min.css" />
+    <Content Include="Theme\font-awesome\4.5.0\css\font-awesome.min.css" />
+    <Content Include="Theme\font-awesome\4.5.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Theme\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Theme\images\avatars\avatar.png" />
+    <Content Include="Theme\images\avatars\avatar1.png" />
+    <Content Include="Theme\images\avatars\avatar2.png" />
+    <Content Include="Theme\images\avatars\avatar3.png" />
+    <Content Include="Theme\images\avatars\avatar4.png" />
+    <Content Include="Theme\images\avatars\avatar5.png" />
+    <Content Include="Theme\images\avatars\profile-pic.jpg" />
+    <Content Include="Theme\images\avatars\user.jpg" />
+    <Content Include="Theme\images\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="Theme\images\bootstrap-colorpicker\alpha.png" />
+    <Content Include="Theme\images\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="Theme\images\bootstrap-colorpicker\hue.png" />
+    <Content Include="Theme\images\bootstrap-colorpicker\saturation.png" />
+    <Content Include="Theme\images\email\email1.png" />
+    <Content Include="Theme\images\email\email2.png" />
+    <Content Include="Theme\images\email\email3.png" />
+    <Content Include="Theme\images\email\email4.png" />
+    <Content Include="Theme\images\gallery\image-1.jpg" />
+    <Content Include="Theme\images\gallery\image-2.jpg" />
+    <Content Include="Theme\images\gallery\image-3.jpg" />
+    <Content Include="Theme\images\gallery\image-4.jpg" />
+    <Content Include="Theme\images\gallery\image-5.jpg" />
+    <Content Include="Theme\images\gallery\image-6.jpg" />
+    <Content Include="Theme\images\gallery\thumb-1.jpg" />
+    <Content Include="Theme\images\gallery\thumb-2.jpg" />
+    <Content Include="Theme\images\gallery\thumb-3.jpg" />
+    <Content Include="Theme\images\gallery\thumb-4.jpg" />
+    <Content Include="Theme\images\gallery\thumb-5.jpg" />
+    <Content Include="Theme\images\gallery\thumb-6.jpg" />
+    <Content Include="Theme\images\placeholder\165x90.png" />
+    <Content Include="Theme\images\placeholder\255x150.png" />
+    <Content Include="Theme\images\placeholder\530x270.png" />
+    <Content Include="Theme\images\placeholder\550x280.png" />
+    <Content Include="Theme\js\ace-editable.min.js" />
+    <Content Include="Theme\js\ace-elements.min.js" />
+    <Content Include="Theme\js\ace-extra.min.js" />
+    <Content Include="Theme\js\ace.min.js" />
+    <Content Include="Theme\js\autosize.min.js" />
+    <Content Include="Theme\js\bootbox.js" />
+    <Content Include="Theme\js\bootstrap-colorpicker.min.js" />
+    <Content Include="Theme\js\bootstrap-datepicker.min.js" />
+    <Content Include="Theme\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Theme\js\bootstrap-editable.min.js" />
+    <Content Include="Theme\js\bootstrap-markdown.min.js" />
+    <Content Include="Theme\js\bootstrap-multiselect.min.js" />
+    <Content Include="Theme\js\bootstrap-tag.min.js" />
+    <Content Include="Theme\js\bootstrap-timepicker.min.js" />
+    <Content Include="Theme\js\bootstrap-wysiwyg.min.js" />
+    <Content Include="Theme\js\bootstrap.min.js" />
+    <Content Include="Theme\js\buttons.colVis.min.js" />
+    <Content Include="Theme\js\buttons.flash.min.js" />
+    <Content Include="Theme\js\buttons.html5.min.js" />
+    <Content Include="Theme\js\buttons.print.min.js" />
+    <Content Include="Theme\js\chosen.jquery.min.js" />
+    <Content Include="Theme\js\dataTables.buttons.min.js" />
+    <Content Include="Theme\js\dataTables.select.min.js" />
+    <Content Include="Theme\js\daterangepicker.min.js" />
+    <Content Include="Theme\js\dropzone.min.js" />
+    <Content Include="Theme\js\excanvas.min.js" />
+    <Content Include="Theme\js\fullcalendar.min.js" />
+    <Content Include="Theme\js\grid.locale-en.js" />
+    <Content Include="Theme\js\holder.min.js" />
+    <Content Include="Theme\js\html5shiv.min.js" />
+    <Content Include="Theme\js\jquery-1.11.3.min.js" />
+    <Content Include="Theme\js\jquery-2.1.4.min.js" />
+    <Content Include="Theme\js\jquery-additional-methods.min.js" />
+    <Content Include="Theme\js\jquery-typeahead.js" />
+    <Content Include="Theme\js\jquery-ui.custom.min.js" />
+    <Content Include="Theme\js\jquery-ui.min.js" />
+    <Content Include="Theme\js\jquery.bootstrap-duallistbox.min.js" />
+    <Content Include="Theme\js\jquery.colorbox.min.js" />
+    <Content Include="Theme\js\jquery.dataTables.bootstrap.min.js" />
+    <Content Include="Theme\js\jquery.dataTables.min.js" />
+    <Content Include="Theme\js\jquery.easypiechart.min.js" />
+    <Content Include="Theme\js\jquery.flot.min.js" />
+    <Content Include="Theme\js\jquery.flot.pie.min.js" />
+    <Content Include="Theme\js\jquery.flot.resize.min.js" />
+    <Content Include="Theme\js\jquery.gritter.min.js" />
+    <Content Include="Theme\js\jquery.hotkeys.index.min.js" />
+    <Content Include="Theme\js\jquery.inputlimiter.min.js" />
+    <Content Include="Theme\js\jquery.jqGrid.min.js" />
+    <Content Include="Theme\js\jquery.knob.min.js" />
+    <Content Include="Theme\js\jquery.maskedinput.min.js" />
+    <Content Include="Theme\js\jquery.mobile.custom.min.js" />
+    <Content Include="Theme\js\jquery.nestable.min.js" />
+    <Content Include="Theme\js\jquery.raty.min.js" />
+    <Content Include="Theme\js\jquery.sparkline.index.min.js" />
+    <Content Include="Theme\js\jquery.ui.touch-punch.min.js" />
+    <Content Include="Theme\js\jquery.validate.min.js" />
+    <Content Include="Theme\js\markdown.min.js" />
+    <Content Include="Theme\js\moment.min.js" />
+    <Content Include="Theme\js\prettify.min.js" />
+    <Content Include="Theme\js\respond.min.js" />
+    <Content Include="Theme\js\select2.min.js" />
+    <Content Include="Theme\js\spin.js" />
+    <Content Include="Theme\js\spinbox.min.js" />
+    <Content Include="Theme\js\tree.min.js" />
+    <Content Include="Theme\js\wizard.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Theme\font-awesome\4.5.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Theme\font-awesome\4.5.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Theme\font-awesome\4.5.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Theme\font-awesome\4.5.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Theme\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Theme\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Theme\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Theme\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\Customer\NewCustomer.cshtml" />
+    <Content Include="Views\Product\NewProduct.cshtml" />
+    <Content Include="Views\Production\NewProduction.cshtml" />
+    <Content Include="Views\Customer\CustomerList.cshtml" />
+    <Content Include="Views\Product\ProductList.cshtml" />
+    <Content Include="Views\Sale\DueCollection.cshtml" />
+    <Content Include="Views\Sale\SaleEntry.cshtml" />
+    <Content Include="Views\Sale\SalesRecords.cshtml" />
+    <Content Include="Views\Sale\SalesRecordsList.cshtml" />
+    <Content Include="Views\Product\ProductStock.cshtml" />
+    <Content Include="Views\Sale\BottleAndJarSales.cshtml" />
+    <Content Include="Views\Sale\InvoiceSearch.cshtml" />
+    <Content Include="Views\Sale\DueList.cshtml" />
+    <Content Include="Views\Sale\DueAllRecords.cshtml" />
+    <Content Include="Views\Sale\DueCollectionRecords.cshtml" />
+    <Content Include="Views\Sale\DueAllRecordsList.cshtml" />
+    <Content Include="Views\Sale\DueCollectionRecordsList.cshtml" />
+    <Content Include="Views\Report\WaterProduction.cshtml" />
+    <Content Include="Views\Report\WaterProductionList.cshtml" />
+    <Content Include="Views\Report\WaterSales.cshtml" />
+    <Content Include="Views\Report\WaterSalesCustomer.cshtml" />
+    <Content Include="Views\Account\UserProfile.cshtml" />
+    <Content Include="Views\Sale\SaleEdit.cshtml" />
+    <Content Include="Views\Sale\SaleList.cshtml" />
+    <Content Include="Views\Sale\SaleInCashEntry.cshtml" />
+    <Content Include="Views\Report\WaterSalesUser.cshtml" />
+    <Content Include="Views\Sale\GatePassRecords.cshtml" />
+    <Content Include="Views\Sale\GatePassRecordsList.cshtml" />
+    <Content Include="Views\Sale\JarSales.cshtml" />
+    <Content Include="Views\Sale\BottleSales.cshtml" />
+    <Content Include="Views\Sale\MonthlyBottleAndJarSales.cshtml" />
+    <Content Include="Views\Sale\MonthlyBottleSales.cshtml" />
+    <Content Include="Views\Sale\MonthlyJarSales.cshtml" />
+    <Content Include="Views\Production\BottleAndJarProduction.cshtml" />
+    <Content Include="Views\Production\BottleProduction.cshtml" />
+    <Content Include="Views\Production\ProductionReport.cshtml" />
+    <Content Include="Views\Production\JarProduction.cshtml" />
+    <Content Include="Views\Report\DailyBottleSales.cshtml" />
+    <Content Include="Views\Report\DailyJarSales.cshtml" />
+    <Content Include="Views\Sale\DueCollectionList.cshtml" />
+    <Content Include="Views\Sale\DateWiseSaleList.cshtml" />
+    <Content Include="Views\Sale\SalesRecord.cshtml" />
+    <Content Include="Views\Sale\SalesRecordList.cshtml" />
+    <Content Include="Views\Sale\VatEntry.cshtml" />
+    <Content Include="Views\Report\DailyBottleSale.cshtml" />
+    <Content Include="Views\Report\DailyJarSale.cshtml" />
+    <Content Include="Views\Sale\BottleAndJarSale.cshtml" />
+    <Content Include="Views\Sale\BottleSale.cshtml" />
+    <Content Include="Views\Sale\JarSale.cshtml" />
+    <Content Include="Views\Sale\MonthlyBottleAndJarSale.cshtml" />
+    <Content Include="Views\Sale\MonthlyBottleSale.cshtml" />
+    <Content Include="Views\Sale\MonthlyJarSale.cshtml" />
+    <Content Include="Views\Sale\DailyVatRecord.cshtml" />
+    <Content Include="Views\Sale\VatRecordList.cshtml" />
+    <Content Include="Views\Sale\MonthlyVatRecord.cshtml" />
+    <Content Include="Views\Sale\YearlyVatRecord.cshtml" />
+    <Content Include="Views\Sale\DailyVatRecords.cshtml" />
+    <Content Include="Views\Sale\MonthlyVatRecords.cshtml" />
+    <Content Include="Views\Sale\YearlyVatRecords.cshtml" />
+    <Content Include="Views\Sale\VatRecordLists.cshtml" />
+    <Content Include="Views\Security\ChangePassword.cshtml" />
+    <Content Include="Views\Security\Index.cshtml" />
+    <Content Include="Views\Security\Login.cshtml" />
+    <Content Include="Views\Security\MenuPage.cshtml" />
+    <Content Include="Views\Security\MenuTab.cshtml" />
+    <Content Include="Views\Security\Module.cshtml" />
+    <Content Include="Views\Security\Permission.cshtml" />
+    <Content Include="Views\Security\User.cshtml" />
+    <Content Include="Views\Security\UserRole.cshtml" />
+    <Content Include="Views\Sale\DailyJarVatRecords.cshtml" />
+    <Content Include="Views\Sale\DailyJarVatRecord.cshtml" />
+    <Content Include="Views\Sale\SalesJarRecordList.cshtml" />
+    <Content Include="Views\Sale\SalesJarRecordsList.cshtml" />
+    <Content Include="Views\Sale\VatJarRecordLists.cshtml" />
+    <Content Include="Views\Sale\VatJarRecordList.cshtml" />
+    <Content Include="Views\Sale\DailyBottleVatRecord.cshtml" />
+    <Content Include="Views\Sale\VatBottleRecordList.cshtml" />
+    <Content Include="Views\Sale\VatBottleRecordLists.cshtml" />
+    <Content Include="Views\Sale\DailyBottleVatRecords.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Images\profile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{45371ba2-4636-488b-9075-cabb384f6822}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{5ad1e8bf-fa5b-4ef3-89d1-108e485a6181}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{39977f31-fed5-4a26-88a7-65a71e95eb9d}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{f0fdf1ce-6df6-49b0-8600-6a99726b29d9}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\BottleAndJarProduction.rdlc" />
+    <EmbeddedResource Include="Reports\BottleProduction.rdlc" />
+    <EmbeddedResource Include="Reports\DailyBottleSale.rdlc" />
+    <EmbeddedResource Include="Reports\JarProduction.rdlc" />
+    <EmbeddedResource Include="Reports\DailyJarSale.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlyBottleAndJarSale.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlyBottleSale.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlyJarSale.rdlc" />
+    <EmbeddedResource Include="Reports\JarSale.rdlc" />
+    <EmbeddedResource Include="Reports\BottleSale.rdlc" />
+    <EmbeddedResource Include="Reports\CustomerDueListReport.rdlc" />
+    <EmbeddedResource Include="Reports\AllDueListReport.rdlc" />
+    <EmbeddedResource Include="Reports\GetPassReport.rdlc" />
+    <EmbeddedResource Include="Reports\ChalanReport.rdlc" />
+    <EmbeddedResource Include="Reports\DueListReport.rdlc" />
+    <EmbeddedResource Include="Reports\GatePassRecordReport.rdlc" />
+    <EmbeddedResource Include="Reports\BottleAndJarSale.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlySaleVatReport.rdlc" />
+    <EmbeddedResource Include="Reports\SaleJarVatReport.rdlc" />
+    <EmbeddedResource Include="Reports\SaleVatReportYearly.rdlc" />
+    <EmbeddedResource Include="Reports\SaleVatReportMonthly.rdlc" />
+    <EmbeddedResource Include="Reports\SaleVatReport.rdlc" />
+    <EmbeddedResource Include="Reports\WaterSaleUserReport.rdlc" />
+    <EmbeddedResource Include="Reports\WaterSaleCustomerReport.rdlc" />
+    <EmbeddedResource Include="Reports\WaterSaleReport.rdlc" />
+    <EmbeddedResource Include="Reports\WaterProductionreport.rdlc" />
+    <EmbeddedResource Include="Reports\SaleRecordReport.rdlc" />
+    <EmbeddedResource Include="Reports\ProductStock.rdlc" />
+    <EmbeddedResource Include="Reports\SalePrintReport.rdlc" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55347</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53481/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

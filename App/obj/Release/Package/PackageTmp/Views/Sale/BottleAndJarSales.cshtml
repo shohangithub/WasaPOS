@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "BottleAndJarSales";
+    string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+}
+
+<div class="row">
+    <div class="col-xs-12 ">
+        <div class="widget-box">
+            <div class="widget-header">
+                <h4 class="widget-title">Bottle And Jar Sale</h4>
+
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main">
+                   
+                        <form method="post" action="@Url.Action("BottleAndJarSales", "Reports")" target="_blank">
+                            <input type="text" id="hidden_area" style="display:none;" />
+                            <div class="row">
+                                <div class="col-xs-12 ">
+                                    <div class="widget-box">
+                                       
+                                        <div class="widget-body">
+                                            <div class="widget-main">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label no-padding-right" for="fromdate"> From Date</label>
+
+                                                            <div class="col-sm-9">
+                                                                <div class='input-group date' id='fromdate'>
+                                                                    <input type="text" class="form-control" value="@currentDate" name="fromdate">
+
+
+                                                                    <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                                    </span>
+                                                                </div>
+                                                                @*<input type="text" id="fromdate" name="fromdate" value="@test" class="form-control" />*@
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label no-padding-right" for="todate">To Date</label>
+
+                                                            <div class="col-sm-9">
+                                                                <div class='input-group date' id='todate'>
+                                                                    <input type="text" class="form-control" value="@currentDate" name="todate">
+
+
+                                                                    <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                                    </span>
+                                                                </div>
+                                                                @*<input type="text" value="@test" name="todate" class="form-control " id='tr_date' />*@
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <div class="col-sm-3 col-sm-offset-9">
+                                                                <input type="submit" class="btn-search" value="Search" />
+                                                                @*<button type="button" class="btn-search" id="btnAdd" onclick="ExSearch()">Search</button>*@
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#todate').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+    })
+    $(function () {
+        $('#fromdate').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+    });
+
+</script>

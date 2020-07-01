@@ -1,0 +1,154 @@
+﻿@model Model.Entities.Sale
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sale</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TSSD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TSSD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TSVat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TSVat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransportCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransportCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CashReceive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CashReceive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OtherCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddedById)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddedById)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedById)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedById)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IpAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IpAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SaleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

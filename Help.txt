@@ -1,0 +1,18 @@
+http://msdn.microsoft.com/en-us/data/jj591621.aspx
+    Run the Enable-Migrations command in Package Manager Console
+    Add-Migration will scaffold the next migration based on changes you have made to your model since the last migration was created
+    Update-Database will apply any pending migrations to the database
+
+	Command:
+
+	1. Enable-Migrations
+	2. Add-Migration DBVersion1
+	3. Update-Database -Verbose
+
+For defult value after Migration
+IsActive = c.Boolean(nullable: false, defaultValueSql: "0"),
+CreateDate = c.DateTime(nullable: false, defaultValueSql: "GETDATE()"), 
+
+// autofac
+http://techbrij.com/autofac-ioc-container-asp-net-mvc-di
+http://stackoverflow.com/questions/29492260/autofac-cannot-resolve-parameter-applicationusermanager

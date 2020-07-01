@@ -1,0 +1,37 @@
+﻿@model App.Models.RegisterViewModel
+@{
+    ViewBag.Title = "UserProfile";
+}
+<div class="row">
+    <div class="col-xs-12 ">
+        <div class="widget-box">
+            <div class="widget-header">
+                <h4 class="widget-title">User List</h4>
+
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main">
+
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>UserName</td>
+                            <td>Email</td>
+                            <td>Image</td>
+                        </tr>
+                        @foreach (var user in Model.ApplicationUsers)
+                        {
+                            <tr>
+                                <td>@user.UserName</td>
+                                <td>@user.Email</td>
+                                <td> <img src='@Url.Action( "Index", "File", new { id = user.Id })' style="height:40px; width:60px;" /></td>
+
+                            </tr>
+                        }
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

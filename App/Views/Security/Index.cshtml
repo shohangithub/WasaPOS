@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SecurityLayout.cshtml";
+}
+<div class="right_col" role="main">
+    <div class="x_content">
+        <div class="col-sm-12">
+            <h1>Academic</h1>
+        </div>
+    </div>
+    <div class="x_content">
+        <div class="col-sm-3">
+            <a href="@Url.Action("Index","Academic")" class="btn btn-app">
+                <i class="fa fa-child"></i> Academic
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="@Url.Action("Index","Administration")" class="btn btn-app">
+                <span class="badge bg-red">6</span>
+                <i class="fa fa-male"></i> Administration
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="@Url.Action("Index","Account")" class="btn btn-app">
+                <i class="fa fa-user-md"></i> Accounts
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="@Url.Action("Index","Exam")" class="btn btn-app">
+                <span class="badge bg-green">211</span>
+                <i class="fa fa-table"></i> Exam
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="@Url.Action("Index","Administration")" class="btn btn-app">
+                <span class="badge bg-orange">32</span>
+                <i class="fa fa-windows"></i> Teacher
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="@Url.Action("Index","Administration")" class="btn btn-app">
+                <span class="badge bg-orange">12</span>
+                <i class="fa fa-laptop"></i> HR & Payroll
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="@Url.Action("Index","Administration")" class="btn btn-app">
+                <i class="fa fa-bus"></i> Transport
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="@Url.Action("Index","Library")" class="btn btn-app">
+                <i class="fa fa-bus"></i> Library
+            </a>
+        </div>
+    </div>
+    <!-- footer content -->
+    <footer>
+        <div class="copyright-info">
+            <p class="pull-right">
+                School Management ERP powered by <a href="https://linktechbd.com">Link-Up Technology Ltd.</a>
+            </p>
+        </div>
+        <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
+</div>

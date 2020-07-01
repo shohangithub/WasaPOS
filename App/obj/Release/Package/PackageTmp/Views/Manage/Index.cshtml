@@ -1,0 +1,42 @@
+﻿@model App.Models.IndexViewModel
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+
+        <div class="btn btn-app btn-sm btn-pink message-css">
+
+            <h2 class="line-height-1 bigger-170">Hi, @Utility.SessionManager.GetSession(Utility.GlobalConstant.LOGIN_NAME)</h2>
+            <p class="">@ViewBag.StatusMessage</p>
+            <div>
+                <h4>Change your account settings</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>Password:</dt>
+                    <dd>
+                        [
+                        @if (Model.HasPassword)
+            {
+                            @Html.ActionLink("Change your password", "ChangePassword")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Create", "SetPassword")
+                        }
+                        ]
+                    </dd>
+                    <dt>Add New User:</dt>
+                    <dd>
+                        [@Html.ActionLink("New User", "Register", "Account") ]
+                    </dd>
+
+                </dl>
+            </div>
+
+        </div>
+    </div>
+</div>
