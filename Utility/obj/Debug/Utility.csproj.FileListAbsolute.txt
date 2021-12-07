@@ -20,3 +20,9 @@ D:\Projects\WorkSpace\WasaPOS\POS\Utility\obj\Debug\Utility.csprojAssemblyRefere
 D:\Projects\WorkSpace\WasaPOS\POS\Utility\obj\Debug\Utility.csproj.CoreCompileInputs.cache
 D:\Projects\WorkSpace\WasaPOS\POS\Utility\obj\Debug\Utility.dll
 D:\Projects\WorkSpace\WasaPOS\POS\Utility\obj\Debug\Utility.pdb
+F:\LinkupProject\WasaPOS\Utility\bin\Debug\Utility.dll
+F:\LinkupProject\WasaPOS\Utility\bin\Debug\Utility.pdb
+F:\LinkupProject\WasaPOS\Utility\obj\Debug\Utility.csprojAssemblyReference.cache
+F:\LinkupProject\WasaPOS\Utility\obj\Debug\Utility.csproj.CoreCompileInputs.cache
+F:\LinkupProject\WasaPOS\Utility\obj\Debug\Utility.dll
+F:\LinkupProject\WasaPOS\Utility\obj\Debug\Utility.pdb
