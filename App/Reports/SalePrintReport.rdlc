@@ -665,7 +665,7 @@
         <rd:DefaultName>Textbox15</rd:DefaultName>
         <Top>1.86154in</Top>
         <Left>0.82086in</Left>
-        <Height>0.25in</Height>
+        <Height>0.16in</Height>
         <Width>2.10371in</Width>
         <ZIndex>9</ZIndex>
         <Style>
@@ -720,7 +720,7 @@
         <rd:DefaultName>Textbox16</rd:DefaultName>
         <Top>2.02338in</Top>
         <Left>0.82086in</Left>
-        <Height>0.25in</Height>
+        <Height>0.16in</Height>
         <Width>2.10371in</Width>
         <ZIndex>10</ZIndex>
         <Style>
@@ -767,6 +767,7 @@
                 </Style>
               </TextRun>
             </TextRuns>
+            <ListLevel>1</ListLevel>
             <Style>
               <TextAlign>Right</TextAlign>
             </Style>
@@ -775,7 +776,7 @@
         <rd:DefaultName>Textbox17</rd:DefaultName>
         <Top>2.18594in</Top>
         <Left>0.82086in</Left>
-        <Height>0.25in</Height>
+        <Height>0.16in</Height>
         <Width>2.10371in</Width>
         <ZIndex>11</ZIndex>
         <Style>
@@ -795,7 +796,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>(+)Transport/Labour : </Value>
+                <Value>(+) Service Charge : </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Tahoma</FontFamily>
@@ -822,15 +823,16 @@
                 </Style>
               </TextRun>
             </TextRuns>
+            <ListLevel>1</ListLevel>
             <Style>
               <TextAlign>Right</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox18</rd:DefaultName>
-        <Top>2.36511in</Top>
-        <Left>0.83417in</Left>
-        <Height>0.25in</Height>
+        <Top>2.35372in</Top>
+        <Left>0.82086in</Left>
+        <Height>0.16in</Height>
         <Width>2.10371in</Width>
         <ZIndex>12</ZIndex>
         <Style>
@@ -883,9 +885,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>2.75677in</Top>
+        <Top>2.86372in</Top>
         <Left>0.82086in</Left>
-        <Height>0.25in</Height>
+        <Height>0.2in</Height>
         <Width>2.10371in</Width>
         <ZIndex>13</ZIndex>
         <Style>
@@ -938,9 +940,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox21</rd:DefaultName>
-        <Top>2.96094in</Top>
+        <Top>3.06348in</Top>
         <Left>0.82086in</Left>
-        <Height>0.25in</Height>
+        <Height>0.16in</Height>
         <Width>2.10371in</Width>
         <ZIndex>14</ZIndex>
         <Style>
@@ -990,9 +992,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox22</rd:DefaultName>
-        <Top>3.1665in</Top>
+        <Top>3.22348in</Top>
         <Left>0.82086in</Left>
-        <Height>0.25in</Height>
+        <Height>0.16in</Height>
         <Width>2.10371in</Width>
         <ZIndex>15</ZIndex>
         <Style>
@@ -1042,9 +1044,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>2.55539in</Top>
+        <Top>2.69289in</Top>
         <Left>0.82086in</Left>
-        <Height>0.25in</Height>
+        <Height>0.16in</Height>
         <Width>2.10371in</Width>
         <ZIndex>16</ZIndex>
         <Style>
@@ -1094,10 +1096,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>3.34598in</Top>
-        <Left>0.83417in</Left>
-        <Height>0.25in</Height>
-        <Width>2.0904in</Width>
+        <Top>3.38348in</Top>
+        <Left>0.82086in</Left>
+        <Height>0.16in</Height>
+        <Width>2.10371in</Width>
         <ZIndex>17</ZIndex>
         <Style>
           <Border>
@@ -1188,8 +1190,63 @@
           <PaddingRight>2pt</PaddingRight>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox19">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>(+) Others Charge : </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Tahoma</FontFamily>
+                  <FontSize>7pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=First(Fields!OtherCost.Value, "InvoiceDataSet")</Value>
+                <Style>
+                  <FontFamily>Tahoma</FontFamily>
+                  <FontSize>7pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>/=</Value>
+                <Style>
+                  <FontFamily>Tahoma</FontFamily>
+                  <FontSize>7pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox18</rd:DefaultName>
+        <Top>2.52761in</Top>
+        <Left>0.82086in</Left>
+        <Height>0.16in</Height>
+        <Width>2.10371in</Width>
+        <ZIndex>20</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>3.66203in</Height>
+    <Height>3.9537in</Height>
     <Style />
   </Body>
   <Width>2.95205in</Width>
@@ -1553,10 +1610,14 @@
           <DataField>Phone</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="OtherCost">
+          <DataField>OtherCost</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>SaleAndPrint</rd:DataSetName>
-        <rd:SchemaPath>E:\PosWorkSpace\POS\POS\App\DataSet\SaleAndPrint.xsd</rd:SchemaPath>
+        <rd:SchemaPath>F:\LinkupProject\WasaPOS\App\DataSet\SaleAndPrint.xsd</rd:SchemaPath>
         <rd:TableName>SaleInvoice</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

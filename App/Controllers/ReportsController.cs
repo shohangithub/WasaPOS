@@ -2415,6 +2415,67 @@ namespace App.Controllers
             return File(renderedByte, mimeType);
         }
 
+        public ActionResult ServiceAndWrappingChargeReport(string fromdate, string todate,string type)
+        {
+            string id = "pdf";
+            LocalReport lr = new LocalReport();
+            string path = type == "Both" ? Path.Combine(Server.MapPath("~/Reports"), "ServiceAndWrappingChargeReportBoth.rdlc")
+                                         : Path.Combine(Server.MapPath("~/Reports"), "ServiceAndWrappingChargeReport.rdlc");
+            if (System.IO.File.Exists(path))
+            {
+                lr.ReportPath = path;
+            }
+            else
+            {
+                return View("");
+            }
+            DataTable cm = new DataTable();
+            string connString2 = ConfigurationManager.ConnectionStrings["ShantiPOS"].ConnectionString;
+            string query2 = $"EXEC [dbo].[GetServiceAndWrappingCharge] @DateFrom = '{fromdate}', @DateTo = '{todate}',@Type = {type}";
+
+            using (SqlConnection conn2 = new SqlConnection(connString2))
+            {
+                SqlDataAdapter da2 = new SqlDataAdapter(query2, conn2);
+                da2.Fill(cm);
+
+                ReportDataSource rd = new ReportDataSource("ServiceNWrappingChargeDataSet", cm);
+                lr.DataSources.Add(rd);
+            }
+
+
+
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+
+            string deviceInfo =
+            "<DeviceInfo>" +
+            "  <OutputFormat>" + id + "</OutputFormat>" +
+            "  <PageWidth>8.5in</PageWidth>" +
+            "  <PageHeight>11in</PageHeight>" +
+            "  <MarginTop>0.5in</MarginTop>" +
+            "  <MarginLeft>0.5in</MarginLeft>" +
+            "  <MarginRight>0.5in</MarginRight>" +
+            "  <MarginBottom>0.5in</MarginBottom>" +
+            "</DeviceInfo>";
+
+            byte[] renderedByte = null;
+            string[] streams = null;
+            Warning[] warnings = null;
+
+            renderedByte = lr.Render(
+                id,
+                deviceInfo,
+                out mimeType,
+                out encoding,
+                out fileNameExtension,
+                out streams,
+                out warnings);
+            return File(renderedByte, mimeType);
+        }
+
+
+
 
         //public ActionResult DailyBottleSales(string ProductCategory, string todate)
         //{

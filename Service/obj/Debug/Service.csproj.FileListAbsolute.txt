@@ -22,7 +22,7 @@ D:\Projects\WorkSpace\WasaPOS\POS\Service\obj\Debug\Service.dll
 D:\Projects\WorkSpace\WasaPOS\POS\Service\obj\Debug\Service.pdb
 F:\LinkupProject\WasaPOS\Service\bin\Debug\Service.dll
 F:\LinkupProject\WasaPOS\Service\bin\Debug\Service.pdb
-F:\LinkupProject\WasaPOS\Service\obj\Debug\Service.csprojAssemblyReference.cache
 F:\LinkupProject\WasaPOS\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
 F:\LinkupProject\WasaPOS\Service\obj\Debug\Service.dll
 F:\LinkupProject\WasaPOS\Service\obj\Debug\Service.pdb
+F:\LinkupProject\WasaPOS\Service\obj\Debug\Service.csprojAssemblyReference.cache

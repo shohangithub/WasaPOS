@@ -414,6 +414,10 @@ D:\Projects\WorkSpace\WasaPOS\POS\App\obj\Debug\App.csproj.CopyComplete
 D:\Projects\WorkSpace\WasaPOS\POS\App\obj\Debug\App.dll
 D:\Projects\WorkSpace\WasaPOS\POS\App\obj\Debug\App.pdb
 F:\LinkupProject\WasaPOS\App\bin\ApplicationInsights.config
+F:\LinkupProject\WasaPOS\App\bin\SqlServerTypes\x64\msvcr120.dll
+F:\LinkupProject\WasaPOS\App\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+F:\LinkupProject\WasaPOS\App\bin\SqlServerTypes\x86\msvcr120.dll
+F:\LinkupProject\WasaPOS\App\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
 F:\LinkupProject\WasaPOS\App\bin\App.dll.config
 F:\LinkupProject\WasaPOS\App\bin\App.dll
 F:\LinkupProject\WasaPOS\App\bin\App.pdb
@@ -441,12 +445,13 @@ F:\LinkupProject\WasaPOS\App\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
 F:\LinkupProject\WasaPOS\App\bin\Microsoft.Owin.Security.OAuth.dll
 F:\LinkupProject\WasaPOS\App\bin\Microsoft.Owin.Security.Twitter.dll
 F:\LinkupProject\WasaPOS\App\bin\Microsoft.ReportViewer.Common.dll
-F:\LinkupProject\WasaPOS\App\bin\Microsoft.ReportViewer.WinForms.dll
+F:\LinkupProject\WasaPOS\App\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+F:\LinkupProject\WasaPOS\App\bin\Microsoft.ReportViewer.WebForms.DLL
+F:\LinkupProject\WasaPOS\App\bin\Microsoft.SqlServer.Types.dll
 F:\LinkupProject\WasaPOS\App\bin\Microsoft.Web.Infrastructure.dll
 F:\LinkupProject\WasaPOS\App\bin\Model.dll
 F:\LinkupProject\WasaPOS\App\bin\Newtonsoft.Json.dll
 F:\LinkupProject\WasaPOS\App\bin\Owin.dll
-F:\LinkupProject\WasaPOS\App\bin\RDLCReportRunner.dll
 F:\LinkupProject\WasaPOS\App\bin\Service.dll
 F:\LinkupProject\WasaPOS\App\bin\System.Net.Http.Formatting.dll
 F:\LinkupProject\WasaPOS\App\bin\System.Web.Helpers.dll
@@ -481,8 +486,6 @@ F:\LinkupProject\WasaPOS\App\bin\Microsoft.Owin.Security.Google.xml
 F:\LinkupProject\WasaPOS\App\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 F:\LinkupProject\WasaPOS\App\bin\Microsoft.Owin.Security.OAuth.xml
 F:\LinkupProject\WasaPOS\App\bin\Microsoft.Owin.Security.Twitter.xml
-F:\LinkupProject\WasaPOS\App\bin\Microsoft.ReportViewer.WebForms.xml
-F:\LinkupProject\WasaPOS\App\bin\Microsoft.ReportViewer.WinForms.xml
 F:\LinkupProject\WasaPOS\App\bin\Newtonsoft.Json.xml
 F:\LinkupProject\WasaPOS\App\bin\System.Web.Helpers.xml
 F:\LinkupProject\WasaPOS\App\bin\System.Web.Mvc.xml

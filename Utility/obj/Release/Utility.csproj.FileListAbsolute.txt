@@ -20,3 +20,8 @@ D:\Projects\WorkSpace\WasaPOS\POS\Utility\obj\Release\Utility.dll
 D:\Projects\WorkSpace\WasaPOS\POS\Utility\obj\Release\Utility.pdb
 D:\Projects\WorkSpace\WasaPOS\POS\Utility\obj\Release\Utility.csprojAssemblyReference.cache
 D:\Projects\WorkSpace\WasaPOS\POS\Utility\obj\Release\Utility.csproj.CoreCompileInputs.cache
+F:\LinkupProject\WasaPOS\Utility\bin\Release\Utility.dll
+F:\LinkupProject\WasaPOS\Utility\bin\Release\Utility.pdb
+F:\LinkupProject\WasaPOS\Utility\obj\Release\Utility.csproj.CoreCompileInputs.cache
+F:\LinkupProject\WasaPOS\Utility\obj\Release\Utility.dll
+F:\LinkupProject\WasaPOS\Utility\obj\Release\Utility.pdb

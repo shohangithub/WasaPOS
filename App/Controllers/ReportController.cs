@@ -65,5 +65,13 @@ namespace App.Controllers
 
             return View();
         }
+
+        [CheckAuthorization]
+        public ActionResult ServiceAndWrappingChargeReport()
+        {
+            var cust = db.Customers.Where(c => c.CustomerType == CustomerType.Regular && c.Status == Status.Accepted).ToList();
+            ViewData["CustomerId"] = new SelectList(cust.Select(x => new { Value = x.CustomerId, Text = x.CustomerName }).ToList(), "Value", "Text");
+            return View();
+        }
     }
 }

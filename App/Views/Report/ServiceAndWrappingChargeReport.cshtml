@@ -1,0 +1,103 @@
+﻿
+@{ ViewBag.Title = "WaterSalesCustomer";
+    string currentDate = DateTime.Now.ToString("yyyy-MM-dd"); }
+
+<div class="row">
+    <div class="col-xs-12 ">
+        <div class="widget-box">
+            <div class="widget-header">
+                <h4 class="widget-title">Service And Wrapping Charge Report</h4>
+
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main">
+                    <form id="water_sales" method="post" action="@Url.Action("ServiceAndWrappingChargeReport", "Reports")" target="_blank">
+                        <input type="text" id="hidden_area" style="display:none;" />
+                        <div class="row">
+                            <div class="col-xs-12 ">
+                                <div class="widget-box">
+                                    <div class="widget-header">
+                                        <h4 class="widget-title">Service And Wrapping Charge</h4>
+
+                                    </div>
+
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label no-padding-right" for="type"> Charge Type</label>
+                                                        <div class="col-sm-9">
+                                                            <select name="type" id="type" class="form-control">
+                                                                <option value="Both">Service & Wrapping Charges</option>
+                                                                <option value="Service">Service Charge</option>
+                                                                <option value="Other">Other Charge</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label no-padding-right" for="fromdate"> From Date</label>
+
+                                                        <div class="col-sm-9">
+                                                            <div class='input-group date' id='fromdate'>
+                                                                <input type="text" class="form-control" value="@currentDate" name="fromdate">
+                                                                <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                </span>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label no-padding-right" for="todate">To Date</label>
+                                                        <div class="col-sm-9">
+                                                            <div class='input-group date' id='todate'>
+                                                                <input type="text" class="form-control" value="@currentDate" name="todate">
+                                                                <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                </span>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3 col-sm-offset-3">
+                                                            <input type="submit" class="btn-search" value="Search" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<span></span>
+<script type="text/javascript">
+    $(function () {
+        $('#todate').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+    })
+    $(function () {
+        $('#fromdate').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+    });
+    $(document).ready(function () {
+        $("Select").attr('data-live-search', true);
+    })
+</script>

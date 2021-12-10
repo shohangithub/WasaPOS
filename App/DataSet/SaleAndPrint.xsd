@@ -14,7 +14,7 @@
   <xs:element name="SaleAndPrint" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SaleAndPrint" msprop:Generator_UserDSName="SaleAndPrint">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="SaleInvoice" msprop:Generator_TableClassName="SaleInvoiceDataTable" msprop:Generator_TableVarName="tableSaleInvoice" msprop:Generator_RowChangedName="SaleInvoiceRowChanged" msprop:Generator_TablePropName="SaleInvoice" msprop:Generator_RowDeletingName="SaleInvoiceRowDeleting" msprop:Generator_RowChangingName="SaleInvoiceRowChanging" msprop:Generator_RowEvHandlerName="SaleInvoiceRowChangeEventHandler" msprop:Generator_RowDeletedName="SaleInvoiceRowDeleted" msprop:Generator_RowClassName="SaleInvoiceRow" msprop:Generator_UserTableName="SaleInvoice" msprop:Generator_RowEvArgName="SaleInvoiceRowChangeEvent">
+        <xs:element name="SaleInvoice" msprop:Generator_TableClassName="SaleInvoiceDataTable" msprop:Generator_TableVarName="tableSaleInvoice" msprop:Generator_TablePropName="SaleInvoice" msprop:Generator_RowDeletingName="SaleInvoiceRowDeleting" msprop:Generator_RowChangingName="SaleInvoiceRowChanging" msprop:Generator_RowEvHandlerName="SaleInvoiceRowChangeEventHandler" msprop:Generator_RowDeletedName="SaleInvoiceRowDeleted" msprop:Generator_UserTableName="SaleInvoice" msprop:Generator_RowChangedName="SaleInvoiceRowChanged" msprop:Generator_RowEvArgName="SaleInvoiceRowChangeEvent" msprop:Generator_RowClassName="SaleInvoiceRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SaleId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msdata:Caption="CustomerId" msprop:Generator_ColumnVarNameInTable="columnSaleId" msprop:Generator_ColumnPropNameInRow="SaleId" msprop:Generator_ColumnPropNameInTable="SaleIdColumn" msprop:Generator_UserColumnName="SaleId" type="xs:long" />
@@ -98,6 +98,7 @@
               <xs:element name="DiscountAmount" msprop:Generator_ColumnVarNameInTable="columnDiscountAmount" msprop:Generator_ColumnPropNameInRow="DiscountAmount" msprop:Generator_ColumnPropNameInTable="DiscountAmountColumn" msprop:Generator_UserColumnName="DiscountAmount" type="xs:string" minOccurs="0" />
               <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName" type="xs:string" minOccurs="0" />
               <xs:element name="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_UserColumnName="Phone" type="xs:string" minOccurs="0" />
+              <xs:element name="OtherCost" msprop:Generator_ColumnVarNameInTable="columnOtherCost" msprop:Generator_ColumnPropNameInRow="OtherCost" msprop:Generator_ColumnPropNameInTable="OtherCostColumn" msprop:Generator_UserColumnName="OtherCost" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

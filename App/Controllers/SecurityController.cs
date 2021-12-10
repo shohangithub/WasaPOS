@@ -19,7 +19,7 @@ namespace App.Controllers
         [AllowAnonymous]
         public ActionResult Login(string errorMsg = "")
         {
-            return View();
+            return View(new Tbl_User());
         }
 
         [HttpPost]

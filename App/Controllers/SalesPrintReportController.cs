@@ -33,7 +33,7 @@ namespace App.Controllers
 
             DataTable cm = new DataTable();
             string connString2 = ConfigurationManager.ConnectionStrings["ShantiPOS"].ConnectionString;
-            string query2 = "SELECT  Sales.AddedById as UserName,Sales.AddedById,Customers.CustomerName, Customers.AddressLine1,Customers.Phone, Products.ProductName, SaleDetails.Quantity, SaleDetails.TotalPrice, SaleDetails.FacePrice, Sales.InvoiceId, Sales.STAmount, Sales.TSSD, Sales.TSVat, Sales.TransportCost, Sales.Discount,Sales.DiscountAmount, Sales.CashReceive, Sales.DueAmount, Sales.SaleDate, Sales.NetTotal, SaleDetails.QtyCase FROM SaleDetails INNER JOIN Products ON SaleDetails.ProductId = Products.ProductId INNER JOIN Sales ON SaleDetails.SaleId = Sales.SaleId INNER JOIN Customers ON Sales.CustomerId = Customers.CustomerId where Sales.SaleId=" + saleId;
+            string query2 = "SELECT  Sales.AddedById as UserName,Sales.AddedById,Customers.CustomerName, Customers.AddressLine1,Customers.Phone, Products.ProductName, SaleDetails.Quantity, SaleDetails.TotalPrice, SaleDetails.FacePrice, Sales.InvoiceId, Sales.STAmount, Sales.TSSD, Sales.TSVat, Sales.TransportCost,Sales.OtherCost, Sales.Discount,Sales.DiscountAmount, Sales.CashReceive, Sales.DueAmount, Sales.SaleDate, Sales.NetTotal, SaleDetails.QtyCase FROM SaleDetails INNER JOIN Products ON SaleDetails.ProductId = Products.ProductId INNER JOIN Sales ON SaleDetails.SaleId = Sales.SaleId INNER JOIN Customers ON Sales.CustomerId = Customers.CustomerId where Sales.SaleId=" + saleId;
 
             //Fill the VFWPostManagers Set with the data
             using (SqlConnection conn2 = new SqlConnection(connString2))
@@ -205,7 +205,7 @@ namespace App.Controllers
 
             DataTable cm = new DataTable();
             string connString2 = ConfigurationManager.ConnectionStrings["ShantiPOS"].ConnectionString;
-            string query2 = "SELECT  Sales.AddedById as UserName,Sales.AddedById,Customers.CustomerName, Customers.AddressLine1,Customers.Phone, Products.ProductName, SaleDetails.Quantity, SaleDetails.TotalPrice, SaleDetails.FacePrice, Sales.InvoiceId, Sales.STAmount, Sales.TSSD, Sales.TSVat, Sales.TransportCost, Sales.Discount,Sales.DiscountAmount, Sales.CashReceive, Sales.DueAmount, Sales.SaleDate, Sales.NetTotal, SaleDetails.QtyCase FROM SaleDetails INNER JOIN Products ON SaleDetails.ProductId = Products.ProductId INNER JOIN Sales ON SaleDetails.SaleId = Sales.SaleId INNER JOIN Customers ON Sales.CustomerId = Customers.CustomerId  where Sales.IsDeleted='" + false+"' AND Sales.InvoiceId=" + invoice_id;
+            string query2 = "SELECT  Sales.AddedById as UserName,Sales.AddedById,Customers.CustomerName, Customers.AddressLine1,Customers.Phone, Products.ProductName, SaleDetails.Quantity, SaleDetails.TotalPrice, SaleDetails.FacePrice, Sales.InvoiceId, Sales.STAmount, Sales.TSSD, Sales.TSVat, Sales.TransportCost,Sales.OtherCost, Sales.Discount,Sales.DiscountAmount, Sales.CashReceive, Sales.DueAmount, Sales.SaleDate, Sales.NetTotal, SaleDetails.QtyCase FROM SaleDetails INNER JOIN Products ON SaleDetails.ProductId = Products.ProductId INNER JOIN Sales ON SaleDetails.SaleId = Sales.SaleId INNER JOIN Customers ON Sales.CustomerId = Customers.CustomerId  where Sales.IsDeleted='" + false+"' AND Sales.InvoiceId=" + invoice_id;
 
             //Fill the VFWPostManagers Set with the data
             using (SqlConnection conn2 = new SqlConnection(connString2))
