@@ -309,6 +309,10 @@ namespace App.DataSet {
             
             private global::System.Data.DataColumn columnReportType;
             
+            private global::System.Data.DataColumn columnDateFrom;
+            
+            private global::System.Data.DataColumn columnDateTo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public GetServiceAndWrappingChargeDataTable() {
@@ -464,6 +468,22 @@ namespace App.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DateFromColumn {
+                get {
+                    return this.columnDateFrom;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DateToColumn {
+                get {
+                    return this.columnDateTo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -499,7 +519,23 @@ namespace App.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public GetServiceAndWrappingChargeRow AddGetServiceAndWrappingChargeRow(int Quantity, string CustomerName, decimal TotalPrice, string QtyCase, string InvoiceId, System.DateTime SaleDate, decimal NetTotal, decimal DiscountAmount, decimal TransportCost, decimal OtherCost, string ProductName, string Size, long SaleId, string ReportType) {
+            public GetServiceAndWrappingChargeRow AddGetServiceAndWrappingChargeRow(
+                        int Quantity, 
+                        string CustomerName, 
+                        decimal TotalPrice, 
+                        string QtyCase, 
+                        string InvoiceId, 
+                        System.DateTime SaleDate, 
+                        decimal NetTotal, 
+                        decimal DiscountAmount, 
+                        decimal TransportCost, 
+                        decimal OtherCost, 
+                        string ProductName, 
+                        string Size, 
+                        long SaleId, 
+                        string ReportType, 
+                        string DateFrom, 
+                        string DateTo) {
                 GetServiceAndWrappingChargeRow rowGetServiceAndWrappingChargeRow = ((GetServiceAndWrappingChargeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -516,7 +552,9 @@ namespace App.DataSet {
                         ProductName,
                         Size,
                         SaleId,
-                        ReportType};
+                        ReportType,
+                        DateFrom,
+                        DateTo};
                 rowGetServiceAndWrappingChargeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGetServiceAndWrappingChargeRow);
                 return rowGetServiceAndWrappingChargeRow;
@@ -561,6 +599,8 @@ namespace App.DataSet {
                 this.columnSize = base.Columns["Size"];
                 this.columnSaleId = base.Columns["SaleId"];
                 this.columnReportType = base.Columns["ReportType"];
+                this.columnDateFrom = base.Columns["DateFrom"];
+                this.columnDateTo = base.Columns["DateTo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -596,6 +636,10 @@ namespace App.DataSet {
                 base.Columns.Add(this.columnSaleId);
                 this.columnReportType = new global::System.Data.DataColumn("ReportType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReportType);
+                this.columnDateFrom = new global::System.Data.DataColumn("DateFrom", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateFrom);
+                this.columnDateTo = new global::System.Data.DataColumn("DateTo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateTo);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnSaleDetailId}, true));
                 this.columnSaleDetailId.AutoIncrement = true;
@@ -617,6 +661,8 @@ namespace App.DataSet {
                 this.columnSize.MaxLength = 2147483647;
                 this.columnSaleId.AllowDBNull = false;
                 this.columnReportType.MaxLength = 20;
+                this.columnDateFrom.MaxLength = 20;
+                this.columnDateTo.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -964,6 +1010,39 @@ namespace App.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DateFrom {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetServiceAndWrappingCharge.DateFromColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateFrom\' in table \'GetServiceAndWrappingCharge\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableGetServiceAndWrappingCharge.DateFromColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DateTo {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetServiceAndWrappingCharge.DateToColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateTo\' in table \'GetServiceAndWrappingCharge\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetServiceAndWrappingCharge.DateToColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsCustomerNameNull() {
                 return this.IsNull(this.tableGetServiceAndWrappingCharge.CustomerNameColumn);
             }
@@ -1044,6 +1123,30 @@ namespace App.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetReportTypeNull() {
                 this[this.tableGetServiceAndWrappingCharge.ReportTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDateFromNull() {
+                return this.IsNull(this.tableGetServiceAndWrappingCharge.DateFromColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDateFromNull() {
+                this[this.tableGetServiceAndWrappingCharge.DateFromColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDateToNull() {
+                return this.IsNull(this.tableGetServiceAndWrappingCharge.DateToColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDateToNull() {
+                this[this.tableGetServiceAndWrappingCharge.DateToColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1221,6 +1324,8 @@ namespace App.DataSet.ServiceNWrappingChargeDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Size", "Size");
             tableMapping.ColumnMappings.Add("SaleId", "SaleId");
             tableMapping.ColumnMappings.Add("ReportType", "ReportType");
+            tableMapping.ColumnMappings.Add("DateFrom", "DateFrom");
+            tableMapping.ColumnMappings.Add("DateTo", "DateTo");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

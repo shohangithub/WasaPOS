@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "DailyBottleVatRecords";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+}
+
+
+<div class="row">
+    <div class="col-xs-12 ">
+        <div class="widget-box">
+            <div class="widget-header">
+                <h4 class="widget-title">VAT Information</h4>
+
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main">
+                    @using (Ajax.BeginForm("DailyBottleVatRecordLists", "Sale", new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "searchResults" }))
+                    {
+                        @*<form id="water_sales" method="post" action="@Url.Action("DailyJarSale", "Reports")" target="_blank">*@
+
+                        <input type="text" id="hidden_area" style="display:none;" />
+                            <div class="row">
+                                <div class="col-xs-12 ">
+                                    <div class="widget-box">
+                                        <div class="widget-header">
+                                            <h4 class="widget-title">Daily VAT Records</h4>
+
+                                        </div>
+
+                                        <div class="widget-body">
+                                            <div class="widget-main">
+                                                <div class="row">
+                                                    <div class="col-sm-offset-3 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label no-padding-right" for="todate">Date</label>
+
+                                                            <div class="col-sm-9">
+                                                                <div class='input-group date datetimepicker'>
+                                                                    <input type="text" class="form-control" value="@currentDate" name="date">
+                                                                    <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <div class="col-sm-3 col-sm-offset-9">
+                                                                <input type="submit" class="btn-search" value="Search" />
+                                                                @*<button type="button" class="btn-search" id="btnAdd" onclick="ExSearch()">Search</button>*@
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    }
+                    <div class="row" id="searchResults">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.datetimepicker').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+    });
+</script>
+
+
+

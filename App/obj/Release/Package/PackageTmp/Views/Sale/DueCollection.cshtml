@@ -1,0 +1,315 @@
+﻿@model IEnumerable<Model.Entities.DueTransaction>
+
+@{
+    ViewBag.Title = "DueCollection";
+    string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+}
+
+<div class="col-xs-12 ">
+    <div class="widget-box">
+
+
+        <div class="widget-body">
+            <div class="widget-main">
+                <form class="form-horizontal" role="form">
+                    <input type="hidden" id="hidden_area" />
+                    <div class="row">
+                        <div class="col-xs-12 ">
+                            <div class="widget-box ">
+
+                                <div class="widget-header">
+                                    <h4 class="widget-title">Due Collection</h4>
+
+                                    <div class="widget-toolbar">
+                                        <a href="#" data-action="collapse">
+                                            <i class="ace-icon fa fa-chevron-up"></i>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="widget-body">
+                                    <div class="widget-main">
+
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="DueTR_Id"> Transaction Id :</label>
+
+                                                    <div class="col-sm-9">
+
+                                                        <input type="text" id="DueTR_Id" name="DueTR_Id" class="form-control" value="@ViewBag.DueTR_Id" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="Customer_Name"> Customer Id :</label>
+
+                                                    <div class="col-sm-9">
+                                                        <input type="text" id="Customer_Name" class="form-control" value="" name="Customer_Name" />
+                                                        <input type="text" id="CustomerId" class="form-control" value="" name="CustomerId" style="display:none;" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="code"> Customer Name :</label>
+
+                                                    <div class="col-sm-9">
+
+                                                        <input type="text" id="CustomerName" class="form-control" value="" name="CustomerName" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="SaleId"> Invoice :</label>
+                                                    <div class="col-sm-9">
+                                                      @Html.DropDownList("SaleId", (SelectList)ViewData["Sale"], "Select ", new { @onchange = "get_data()", id = "SaleId",@class= "form-control selectpicker" })
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="TrType">Transition Type</label>
+
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control" id="TrType" name="TrType">
+
+                                                            <option value="Receive">Receive</option>
+                                                            
+                                                        </select> 
+
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="PaymentDate">PaymentDate</label>
+
+                                                    <div class="col-sm-9">
+                                                        <div class='input-group date' id='PayDate'>
+                                                            <input type="text"id='PaymentDate' class="form-control" value="@currentDate" name="fromdate">
+
+
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="DueAmount">Due Amount </label>
+
+                                                    <div class="col-sm-9">
+                                                        <input  id="DueAmount" class="form-control" value="" name="DueAmount" />
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="PaidAmount"> Paid Amount   </label>
+
+                                                    <div class="col-sm-9">
+                                                        <input type="text" id="PaidAmount" name="PaidAmount" placeholder="Paid Amount " class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="TrDescription">Description </label>
+
+                                                    <div class="col-sm-9">
+                                                        <input type="text" id="TrDescription" placeholder="Description" name="TrDescription" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-3 col-sm-offset-9">
+
+                                                        <button type="button" class="btn-save " id="btnAdd" onclick="Create();">Save</button>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                <div class="row">
+                    <div class="col-xs-12">
+
+                        <div class="clearfix">
+                            <div class="pull-right tableTools-container"></div>
+                        </div>
+                        <div class="table-header btn-custom">
+
+                            Existing Production
+
+                        </div>
+
+                        <div id="after_create">
+                            <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Transaction Id  </th>
+                                        <th>Payment Date  </th>
+                                        <th>Customer Name </th>
+                                        <th>Contact Person</th>
+                                        <th>Phone </th>
+                                        <th>Due Amount</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @if (Model.Count() > 0)
+                                    {
+                                        foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.DueTR_Id</td>
+
+                                                <td>@Convert.ToDateTime(@item.PaymentDate).ToString("dd-MM-yyy")</td>
+                                                <td>@item.Customer.CustomerName</td>
+                                                <td>@item.Customer.ContactPerson</td>
+                                                <td>@item.Customer.Phone</td>
+                                                <td>@item.InAmount</td>
+                                               
+
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr>
+                                            <td class="number" colspan="5"><h4>No Due Amount Available!</h4></td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#PayDate').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+    });
+
+    $(function () {
+        $("#Customer_Name").focus();
+    });
+    $(document).ready(function () {
+        $("Select").attr('data-live-search', true);
+    });
+    $(document).ready(function () {
+        $('#dynamic-table').DataTable();
+    });
+    $(document).ready(function (e) {
+        $("#Customer_Name").focus();
+        $('input#Customer_Name').keydown(function (e) {
+            if (e.which === 13) {
+                $('#SaleId').focus();
+                var CustomerUId = $("#Customer_Name").val();
+                data = {
+                    "CustomerUId": CustomerUId
+                };
+                $.ajax({
+                    url: '/Customer/GetDueCustomer',
+                    type: "POST",
+                    data: JSON.stringify(data),
+                    dataType: "JSON",
+                    contentType: 'application/json; charset=utf-8',
+                    cache: false,
+                    success: function (d) {
+                        if (d.success == true) {
+
+                            $("#CustomerName").val(d.CustomerName);
+                            $("#CustomerId").val(d.CustomerId);
+                            $("#DueAmount").val(d.TotalDueAmount);                           
+
+                        }
+                        else {
+                            alert(d.message);
+                        }
+                    },
+                    error: function (d) {
+                        //alert(d.message);
+                    }
+                });
+            }
+        });
+        $('#PaidAmount').keydown(function (e) {
+            if (e.which === 13) {
+                $('#btnAdd').focus();
+            }
+        });
+
+    });
+    function get_data() {
+        var SaleId = $("#SaleId").val();
+        data = {
+            "SaleId": SaleId
+        };
+        $.ajax({
+            url: '/Customer/GetDueInvoice',
+            type: "POST",
+            data: JSON.stringify(data),
+            dataType: "JSON",
+            contentType: 'application/json; charset=utf-8',
+            cache: false,                              
+            success: function (d) {
+                $('#PaidAmount').focus();
+                $("#PaidAmount").val(d.DueAmount);                   
+            },
+            error: function (d) {
+                alert("Failed");
+            }
+           
+        });
+    }
+    function Create() {
+        var Customer_Name = $("#Customer_Name").val();
+        var PaidAmount = $("#PaidAmount").val();
+        if (Customer_Name == "") {
+            alert("Customer Name are required.");
+        }
+        if (PaidAmount == "") {
+            alert(" Paid Amount are required.");
+        }
+        else {
+            var obj = {
+                "CustomerId": $('#CustomerId').val(),
+                "SaleId": $('#SaleId').val(),
+                "DueTR_Id": $('#DueTR_Id').val(),
+                "PaymentDate": $('#PaymentDate').val(),
+              
+                "TrType": $('#TrType').val(),
+                "PaidAmount": $('#PaidAmount').val(),
+               
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Sale/Addtransaction",
+                data: JSON.stringify(obj),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                success: function (data, textStatus) {
+                    alert(data.message);
+                    $('#after_create').load('@Url.Action("DueCollectionList", "Sale")');
+                    location.href = "/Sale/DueCollection";
+                },
+                error: function () {
+                    alert('Transaction Creation Failed!');
+                }
+            });
+        }
+    }
+   
+</script>

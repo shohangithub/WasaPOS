@@ -40,6 +40,8 @@
               <Mapping SourceColumn="Size" DataSetColumn="Size" />
               <Mapping SourceColumn="SaleId" DataSetColumn="SaleId" />
               <Mapping SourceColumn="ReportType" DataSetColumn="ReportType" />
+              <Mapping SourceColumn="DateFrom" DataSetColumn="DateFrom" />
+              <Mapping SourceColumn="DateTo" DataSetColumn="DateTo" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -51,7 +53,7 @@
   <xs:element name="ServiceNWrappingChargeDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ServiceNWrappingChargeDataSet" msprop:Generator_UserDSName="ServiceNWrappingChargeDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="GetServiceAndWrappingCharge" msprop:Generator_TableClassName="GetServiceAndWrappingChargeDataTable" msprop:Generator_TableVarName="tableGetServiceAndWrappingCharge" msprop:Generator_RowChangedName="GetServiceAndWrappingChargeRowChanged" msprop:Generator_TablePropName="GetServiceAndWrappingCharge" msprop:Generator_RowDeletingName="GetServiceAndWrappingChargeRowDeleting" msprop:Generator_RowChangingName="GetServiceAndWrappingChargeRowChanging" msprop:Generator_RowEvHandlerName="GetServiceAndWrappingChargeRowChangeEventHandler" msprop:Generator_RowDeletedName="GetServiceAndWrappingChargeRowDeleted" msprop:Generator_RowClassName="GetServiceAndWrappingChargeRow" msprop:Generator_UserTableName="GetServiceAndWrappingCharge" msprop:Generator_RowEvArgName="GetServiceAndWrappingChargeRowChangeEvent">
+        <xs:element name="GetServiceAndWrappingCharge" msprop:Generator_TableClassName="GetServiceAndWrappingChargeDataTable" msprop:Generator_TableVarName="tableGetServiceAndWrappingCharge" msprop:Generator_TablePropName="GetServiceAndWrappingCharge" msprop:Generator_RowDeletingName="GetServiceAndWrappingChargeRowDeleting" msprop:Generator_RowChangingName="GetServiceAndWrappingChargeRowChanging" msprop:Generator_RowEvHandlerName="GetServiceAndWrappingChargeRowChangeEventHandler" msprop:Generator_RowDeletedName="GetServiceAndWrappingChargeRowDeleted" msprop:Generator_UserTableName="GetServiceAndWrappingCharge" msprop:Generator_RowChangedName="GetServiceAndWrappingChargeRowChanged" msprop:Generator_RowEvArgName="GetServiceAndWrappingChargeRowChangeEvent" msprop:Generator_RowClassName="GetServiceAndWrappingChargeRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SaleDetailId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnSaleDetailId" msprop:Generator_ColumnPropNameInRow="SaleDetailId" msprop:Generator_ColumnPropNameInTable="SaleDetailIdColumn" msprop:Generator_UserColumnName="SaleDetailId" type="xs:long" />
@@ -99,6 +101,20 @@
               </xs:element>
               <xs:element name="SaleId" msprop:Generator_ColumnVarNameInTable="columnSaleId" msprop:Generator_ColumnPropNameInRow="SaleId" msprop:Generator_ColumnPropNameInTable="SaleIdColumn" msprop:Generator_UserColumnName="SaleId" type="xs:long" />
               <xs:element name="ReportType" msprop:Generator_ColumnVarNameInTable="columnReportType" msprop:Generator_ColumnPropNameInRow="ReportType" msprop:Generator_ColumnPropNameInTable="ReportTypeColumn" msprop:Generator_UserColumnName="ReportType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateFrom" msprop:Generator_ColumnVarNameInTable="columnDateFrom" msprop:Generator_ColumnPropNameInRow="DateFrom" msprop:Generator_ColumnPropNameInTable="DateFromColumn" msprop:Generator_UserColumnName="DateFrom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateTo" msprop:Generator_ColumnVarNameInTable="columnDateTo" msprop:Generator_ColumnPropNameInRow="DateTo" msprop:Generator_ColumnPropNameInTable="DateToColumn" msprop:Generator_UserColumnName="DateTo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />

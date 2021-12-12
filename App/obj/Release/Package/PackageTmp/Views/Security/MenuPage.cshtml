@@ -1,0 +1,317 @@
+﻿@model IList <Model.Entities.Tbl_View>
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="right_col" role="main">
+
+        <div class="clearfix" id="succMsg" style="text-align:center;padding-top:7px;"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Add Page<small>Create new Page</small></h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content" id="contactFormArea">
+                        <br />
+                        <form id="mainform" data-parsley-validate class="form-horizontal form-label-left">
+                            <div class="form-group">
+                                @Html.Hidden("ViewId")
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                                    Menu
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownList("MenuId", (SelectList)ViewBag.Menu, "Select", new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                    Name <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.TextBox("PageName",null, new { @class = "form-control col-md-7 col-xs-12", required = "required" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                    Controller <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.TextBox("Controller", null, new { @class = "form-control col-md-7 col-xs-12", required = "required" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                    View <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.TextBox("Action", null, new { @class = "form-control col-md-7 col-xs-12", required = "required" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                    Order No <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.TextBox("ViewOrderNo", null, new { @class = "form-control col-md-7 col-xs-12", required = "required" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                                    Status <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="radio-custom">
+                                        <select id="Status" name="Status" class="form-control">
+                                            <option>Active</option>
+                                            <option>Inactive</option>
+                                        </select>
+                                        @*@Html.RadioButtonFor(x => x.Status, true, new { id = "radio1" })
+                                        <label for="radio1"><i class="fa fa-check" aria-hidden="true"></i></label>
+                                        @Html.RadioButtonFor(x => x.Status, false, new { id = "radio2" })
+                                        <label for="radio2"><i class="fa fa-circle-thin" aria-hidden="true"></i></label>*@
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button type="button" class="btn btn-primary" id="clearBtn"onclick="UpdatePage()">Clear</button>
+                                    <button type="button" class="btn btn-success" id="btnSubmit" onclick="SetPage()">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_content" id="tableSection">
+                        <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>View ID</th>
+                                    <th>View Name</th>
+                                    <th>Menu Name</th>
+                                    <th>Controller</th>
+                                    <th>View</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @if (Model.Count() > 0)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.ViewId</td>
+                                            <td>@item.PageName</td>
+                                            <td>@item.Tbl_Menu.MenuName</td>
+                                            <td>@item.Controller</td>
+                                            <td>@item.Action</td>
+                                            <td>
+                                                <a class="green" style="cursor:pointer" onclick="Edit('@item.ViewId','@item.MenuId','@item.PageName','@item.Controller','@item.Action','@item.ViewOrderNo','@item.Status')">
+                                                    <i class="ace-icon fa fa-pencil bigger-130"></i>
+                                                </a>
+                                                <a class="red" style="cursor:pointer" onclick="DeletePage('@item.ViewId')">
+                                                    <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td class="number" colspan="6"><h4>No Data Available!</h4></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+@section scripts{
+    <script type="text/javascript">
+       function SetPage() {
+        var MenuId = $("#MenuId").val();
+        var PageName = $("#PageName").val();
+        var Controller = $("#Controller").val();
+        var Action = $("#Action").val();
+        var ViewOrderNo = $("#ViewOrderNo").val();
+        var Status = $("#Status").val();
+
+        if (MenuId == "") {
+            alert("Menu is required.");
+        }
+        else if (PageName == "") {
+            alert("Page Name is required.");
+        }
+        else if (Controller == "") {
+            alert("Please set Controller.");
+        } else if (Action == "") {
+            alert("Please set View.");
+        }
+        else if (ViewOrderNo == "") {
+            alert("Please set Order No.");
+        }
+        else if (Status == "") {
+            alert("Status is required.");
+        }
+        else {
+            var data = {
+                MenuId: MenuId,
+                PageName: PageName,
+                Controller: Controller,
+                Action: Action,
+                ViewOrderNo: ViewOrderNo,
+                Status: Status
+            };
+            $.ajax({
+                type: "POST",
+                url: "../Security/AddPage",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                success: function (data, textStatus, jqXHR) {
+                    $("#dialogSupplier").dialog('close');
+                    alert(data.message);
+                    //$('#after_create').load('@Url.Action("UserList", "Security")');
+                    $("#ViewId").val("");
+                    $("#MenuId").val("");
+                    $("#PageName").val("");
+                    $("#Controller").val("");
+                    $("#Action").val("");
+                    $("#ViewOrderNo").val("");
+                    $("#Status").val("");
+
+                    window.location.reload();
+                },
+                error: function () {
+                    alert('User Creation Failed!');
+                }
+            });
+        }
+    }
+    function Edit(ViewId, MenuId, PageName, Controller,Action,ViewOrderNo,Status) {
+        data = '<input type="hidden" id="ViewId" value="' + ViewId + '">';
+        $("#hidden_area").html(data);
+
+        $("#MenuId").val(MenuId);
+        $("#PageName").val(PageName);
+        $("#Controller").val(Controller);
+        $("#Action").val(Action);
+        $("#ViewOrderNo").val(ViewOrderNo);
+        $("#Status").val(Status);
+
+        $("#setoffice").hide();
+        $("#updateoffice").show();
+    }
+
+    function UpdatePage() {
+        var ViewId = $("#ViewId").val();
+        var MenuId = $("#MenuId").val();
+        var PageName = $("#PageName").val();
+        var Controller = $("#Controller").val();
+        var Action = $("#Action").val();
+        var ViewOrderNo = $("#ViewOrderNo").val();
+        var Status = $("#Status").val();
+
+        if (MenuId == "") {
+            alert("Menu is required.");
+        }
+        else if (PageName == "") {
+            alert("Page Name is required.");
+        }
+        else if (Controller == "") {
+            alert("Please set Controller.");
+        } else if (Action == "") {
+            alert("Please set View.");
+        }
+        else if (ViewOrderNo == "") {
+            alert("Please set Order No.");
+        }
+        else if (Status == "") {
+            alert("Status is required.");
+        }
+        else {
+            var data = {
+                ViewId: ViewId,
+                MenuId: MenuId,
+                PageName: PageName,
+                Controller: Controller,
+                Action: Action,
+                ViewOrderNo: ViewOrderNo,
+                Status: Status
+            };
+            $.ajax({
+                type: "POST",
+                url: "../Security/UpdatePage",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                success: function (data) {
+                    @*$('#after_create').load('@Url.Action("UserList", "Security")');*@
+                    alert(data.message);
+                    $("#dialogSupplier").dialog('close');
+                    $("#ViewId").val("");
+                    $("#MenuId").val("");
+                    $("#PageName").val("");
+                    $("#Controller").val("");
+                    $("#Action").val("");
+                    $("#ViewOrderNo").val("");
+                    $("#Status").val("");
+                    window.location.reload();
+                },
+                error: function () {
+                    alert('Update Operation Failed!');
+                }
+            });
+        }
+    }
+
+    function DeletePage(ViewId) {
+        if (confirm('Are you sure to delete record?')) {
+            var data = {
+                ViewId: ViewId
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "../Security/DeletePage",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                success: function (data, textStatus, jqXHR) {
+                    alert(data.message);
+                    @*$('#after_create').load('@Url.Action("UserList", "Security")');*@
+                    $("#setoffice").show();
+                    $("#updateoffice").hide();
+                    window.location.reload();
+                },
+                error: function () {
+                    $("#setoffice").show();
+                    $("#updateoffice").hide();
+                    alert('Deleted Failed!');
+                }
+            });
+        }
+    }
+
+    </script>
+}

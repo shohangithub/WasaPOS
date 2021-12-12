@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "YearlyVatRecord";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-xs-12 ">
+        <div class="widget-box">
+            <div class="widget-header">
+                <h4 class="widget-title">VAT Information</h4>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main">
+
+                    <form id="water_sales" method="post" action="@Url.Action("YearlySaleVatReports", "Reports")" target="_blank">
+                        <input type="text" id="hidden_area" style="display:none;" />
+                        <div class="row">
+                            <div class="col-xs-12 ">
+                                <div class="widget-box">
+                                    <div class="widget-header">
+                                        <h4 class="widget-title">Yearly VAT Records</h4>
+                                    </div>
+
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <div class="row">
+                                                @*<div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label no-padding-right" for="todate">Month</label>
+                                                        <div class="col-sm-9">
+                                                            @Html.DropDownList("month", (SelectList)ViewBag.Month, "Select", new { @class = "form-control" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3 col-sm-offset-9">
+                                                            <input type="submit" class="btn-search" value="Search" />
+
+                                                        </div>
+                                                    </div>
+                                                </div>*@
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label no-padding-right" for="todate">Year</label>
+                                                        <div class="col-sm-9">
+                                                            @Html.DropDownList("year", (SelectList)ViewBag.Year, "Select", new { @class = "form-control" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3 col-sm-offset-9">
+                                                            <input type="submit" class="btn-search" value="Search" />
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

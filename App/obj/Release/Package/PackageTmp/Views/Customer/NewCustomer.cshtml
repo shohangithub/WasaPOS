@@ -1,0 +1,319 @@
+﻿
+@model IEnumerable<Model.Entities.Customer>
+
+@{
+    ViewBag.Title = "NewCustomer";
+}
+
+
+    <div class="col-xs-12 ">
+        <div class="widget-box">
+            <div class="widget-body">
+                <div class="widget-main">
+                    <form class="form-horizontal" role="form">
+                        <input type="hidden" id="hidden_area" />
+                        <div class="row">
+                            <div class="col-xs-12 ">
+                                <div class="widget-box ">
+
+                                    <div class="widget-header">
+                                        <h4 class="widget-title">Customer Information</h4>
+
+                                        <div class="widget-toolbar">
+                                            <a href="#" data-action="collapse">
+                                                <i class="ace-icon fa fa-chevron-up"></i>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label no-padding-right" for="CustomerUId"> Customer Id</label>
+
+                                                        <div class="col-sm-9">
+                                                            <input type="text" id="CustomerUId" placeholder="Customer Name" value="@ViewBag.CustomerUId" name="CustomerUId" class="form-control" />
+
+                                                        </div>
+                                                    </div>
+                                                   
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label no-padding-right" for="Ccustomer_name"> Name</label>
+
+                                                        <div class="col-sm-9">
+                                                            <input type="text" id="customer_name" placeholder="Customer Name" class="form-control"/>
+                                                          
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label no-padding-right" for="contact_persion">Conact Persion</label>
+
+                                                        <div class="col-sm-9">
+                                                            <input type="text" id="contact_persion" placeholder="Contact Persion" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label no-padding-right" for="address">Address</label>
+
+                                                        <div class="col-sm-9">
+
+                                                            <input id="address" placeholder="Address" class="form-control " />
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                                <div class="col-sm-6">
+                                                  
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label no-padding-right" for="district">District</label>
+
+                                                        <div class="col-sm-9">
+                                                            <input type="text" id="district" class="form-control" placeholder="District"  />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label no-padding-right" for="phone">Phone Number</label>
+
+                                                        <div class="col-sm-9">
+                                                            <input type="text" id="phone" placeholder="Phone Number" class="form-control"  />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label no-padding-right" for="email"> Email</label>
+
+                                                        <div class="col-sm-9">
+                                                            <input type="text" id="email" placeholder="Email" class="form-control"  />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3 col-sm-offset-9">
+
+                                                            <button type="button" class="btn-save " id="btnAdd" onclick="Create();">Save</button>
+                                                            <button type="button" class="btn-update" style="display:none;" id="btnUp" onclick=" Update();">Update</button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </form>
+                    <div class="row">
+                        <div class="col-xs-12">
+
+                            <div class="clearfix">
+                                <div class="pull-right tableTools-container"></div>
+                            </div>
+                            <div class="table-header btn-custom">
+                              
+                                Existing Customer
+
+                            </div>
+
+                            <div id="after_create">
+                                <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Customer ID</th>
+                                            <th>Customer Name</th>
+                                            <th>Contact Parsion</th>
+                                            <th>Contact Number</th>
+                                           
+                                            <th>Email</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    @if (Model.Count() > 0)
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.CustomerUId</td>
+                                        <td>@item.CustomerName</td>
+                                        <td>@item.ContactPerson</td>
+                                        <td>@item.Phone</td>
+                                        <td>@item.Email</td>       
+                                         <td>
+                                            <a class="green" style="cursor:pointer" onclick="return getById('  @item.CustomerId ')">
+                                                <i class="ace-icon fa fa-pencil bigger-130"></i>
+                                            </a>
+                                            <a class="red" style="cursor:pointer" onclick="Delete('@item.CustomerId')">
+                                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                                            </a>
+                                        </td>
+
+                                                </tr>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td class="number" colspan="6"><h4>No Data Available!</h4></td>
+                                            </tr>
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+    
+    $(document).ready(function () {
+        $('#dynamic-table').DataTable();
+    });
+
+    function Create() {
+        var customer_name = $("#customer_name").val();
+        var contact_persion = $("#contact_persion").val();
+        var address = $("#address").val();
+        var district = $("#district").val();
+        var phone = $("#phone").val();
+        var email = $("#email").val();
+        if (customer_name == "") {
+            alert("Customer field are required.");
+            return false;
+        }
+        if (contact_persion == "") {
+            alert(" Contact Person are required.");
+            return false;
+        }
+        if (phone == "") {
+            alert(" Phone are required.");
+            return false;
+        }
+        else {
+            var obj = {
+
+                "CustomerUId": $('#CustomerUId').val(),
+                "customer_name": $('#customer_name').val(),
+                "contact_persion": $('#contact_persion').val(),
+                "address": $('#address').val(),
+                "district": $('#district').val(),
+                "phone": $('#phone').val(),
+                "email": $('#email').val(),
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Customer/AddCustomer",
+                data: JSON.stringify(obj),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                success: function (data, textStatus) {
+                    alert(data.message);
+                    $('#after_create').load('@Url.Action("CustomerList", "Customer")');
+                    location.href = "/Customer/NewCustomer";
+                },
+                error: function () {
+                    alert(' Creation Failed!');
+                }
+            });
+        }
+    }
+    function getById(scid) {
+
+        $.ajax({
+            url: "/Customer/getByID",
+            data: { id: scid },
+            type: "GET",
+            dataType: "json",
+            success: function (resul) {
+
+                $('#hidden_area').val(resul.scid);
+                $('#customer_name').val(resul.CustomerName);
+
+                $("#contact_persion").val(resul.contact_persion);
+                $("#address").val(resul.address);
+                $("#district").val(resul.district);
+                $("#phone").val(resul.phone);
+                $("#email").val(resul.email);
+                $('#btnAdd').hide();
+                $('#btnUp').show();
+            },
+            error: function (em) {
+                alert(em.responseText);
+            }
+        });
+    }
+    function Update() {
+        var customer_name = $("#customer_name").val();
+        var contact_persion = $("#contact_persion").val();
+        var address = $("#address").val();
+        var district = $("#district").val();
+        var phone = $("#phone").val();
+        var email = $("#email").val();
+        if (customer_name == "") {
+            alert("Customer field are required.");
+            return false;
+        }
+        if (contact_persion == "") {
+            alert(" Contact Person are required.");
+            return false;
+        }
+        if (phone == "") {
+            alert(" Phone are required.");
+            return;
+        }
+        else {
+            var obj = {
+
+                "CustomerId": $('#hidden_area').val(),
+                "customer_name": $('#customer_name').val(),
+                "contact_persion": $('#contact_persion').val(),
+                "address": $('#address').val(),
+                "district": $('#district').val(),
+                "phone": $('#phone').val(),
+                "email": $('#email').val(),
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Customer/UpdateCustomer",
+                data: JSON.stringify(obj),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                success: function (data, textStatus) {
+                    alert(data.message);
+                    $('#after_create').load('@Url.Action("CustomerList", "Customer")');
+                    location.href = "/Customer/NewCustomer";
+                },
+                error: function () {
+                    alert(' Creation Failed!');
+                }
+            });
+        }
+    }
+    function Delete(CID) {
+        $.ajax({
+            url: "/Customer/Delete/",
+            data: JSON.stringify({ id: CID }),
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (result) {
+                location.href = "/Customer/NewCustomer";
+            },
+            error: function (em) {
+                alert(em.responseText);
+            }
+        });
+    }
+</script>

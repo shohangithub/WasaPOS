@@ -1,0 +1,504 @@
+﻿
+@{
+    ViewBag.Title = "NewProduction";
+    string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+}
+<div class="col-xs-12 ">
+    <div class="widget-box">
+        <div class="widget-body">
+            <div class="widget-main">
+                <form class="form-horizontal" role="form">
+                    <input type="hidden" id="hidden_area" />
+                    <div class="row">
+                        <div class="col-xs-12 ">
+                            <div class="widget-box ">
+
+                                <div class="widget-header">
+                                    <h4 class="widget-title">Production Entry</h4>
+                                </div>
+                                <div class="widget-body">
+                                    <div class="widget-main">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="contact_persion">Shift</label>
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control" id="ProductionShift" name="ProductionShift" tabindex="1">
+                                                            <option value="">Select Shift</option>
+                                                            <option value="Morning Shift">Morning Shift</option>
+                                                            <option value="General Shift">General Shift</option>
+                                                            <option value="Evening Shift">Evening Shift</option>
+                                                        </select>
+                                                        <span class="ProductionShift text-danger">Shift no required</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label no-padding-right" for="date">Production Date</label>
+                                                    <div class="col-sm-9">
+                                                        <div class='input-group date' id='datetimepicker'>
+                                                            <input type="text" class="form-control" id="ProductionDate" value="@currentDate" name="ProductionDate" tabindex="2" />
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                        </div>
+                                                        <span class="ProductionDate text-danger">Production Date no required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="clearfix">
+                                <div class="pull-right tableTools-container"></div>
+                            </div>
+                            <div class="widget-header">
+                                <h4 class="widget-title">Production Details Entry</h4>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <table id="dynamic-table" class="table table-responsive">
+                                        <thead>
+                                            <tr style="background-color:#0094ff; margin-top:20px; color:#fff; text-align:center;">
+                                                <th style="width:300px;">Product Name</th>
+                                                <th>Unit</th>
+                                                <th>Quantity</th>
+                                                <th>Amount (Litter)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td >
+                                                    <input type="text" id="swml250" class="form-control" value="Shanti Water 250 ML" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="swml250_qty" placeholder="Pc"  class="form-control" value="" readonly />
+
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="swml250_quantity" placeholder="Quantity" class="form-control" value="" tabindex="3" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="swml250_litter" placeholder="Litter" class="form-control" value="" readonly />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" id="sw5ml" class="form-control" value="Shanti Water 0.5 L" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw5ml_qty" placeholder="Pc"  class="form-control" value="" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw5ml_quantity" placeholder="Quantity" class="form-control" value="" tabindex="4" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw5ml_litter" placeholder="Litter" class="form-control" value="" readonly />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" id="sw1l" class="form-control" value="Shanti Water 1.0 L" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw1l_qty" placeholder="Pc"  class="form-control" value="" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw1l_quantity" placeholder="Quantity" class="form-control" value="" tabindex="5" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw1l_litter" placeholder="Litter" class="form-control" value="" readonly  />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" id="sw15l" class="form-control" value="Shanti Water 1.5 L" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw15l_qty" placeholder="Pc"  class="form-control" value="" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw15l_quantity" placeholder="Quantity" class="form-control" value="" tabindex="6" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw15l_litter" placeholder="Litter" class="form-control" value="" readonly />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" id="sw2l" class="form-control" value="Shanti Water 2.0 L" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw2l_qty" placeholder="Pc"  class="form-control" value="" readonly/>
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw2l_quantity" placeholder="Quantity" class="form-control" value="" tabindex="7" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw2l_litter" placeholder="Litter" class="form-control" value="" readonly />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                    <input type="text" id="sw5l" class="form-control" value="Shanti Water 5.0 L" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw5l_qty" placeholder="Pc" class="form-control" value="" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw5l_quantity" placeholder="Quantity" class="form-control" value="" tabindex="8" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw5l_litter" placeholder="Litter" class="form-control" value="" readonly />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" id="sw20l" class="form-control" value="Shanti Water 20.0 L 30TK   " readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw20l_qty" placeholder="Pc"  class="form-control" value="" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw20l_quantity" placeholder="Quantity" class="form-control" value="" tabindex="9" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw20l_litter" placeholder="Litter" class="form-control" value="" readonly />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                    <input type="text" id="sw20l4" class="form-control" value="Shanti Water 20.0 L 40Tk" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw20l4_qty" placeholder="Pc" class="form-control" value="" readonly />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw20l4_quantity" placeholder="Quantity" class="form-control" value="" tabindex="10" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sw20l4_litter" placeholder="Litter" class="form-control" value="" readonly />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="form-group">
+                                        <div class="col-sm-3 col-sm-offset-9">
+                                            <input id="submit" type="button" value="Save" class="btn-save" />
+                                            @*//<button type="button" class="btn-save " id="btnAdd" onclick="Create();">Save</button>*@
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(function () {
+        $('#datetimepicker').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+
+
+    });
+
+    $(document).ready(function () {
+        var ProductionDetails = [];
+        $('.text-danger').hide();
+      
+        $('#submit').click(function () {
+            var isAllValid = true;
+            if ($('#ProductionShift').val().trim() == '') {
+                isAllValid = false;              
+                $('.ProductionShift.text-danger').show();
+            }
+            else {
+              
+                $('.ProductionShift.text-danger').hide();
+            }
+            if ($('#ProductionDate').val().trim() == '') {
+                isAllValid = false;
+                $('.ProductionDate.text-danger').show();
+            }
+            else {
+
+                $('.ProductionShift.text-danger').hide();
+            }
+            if (isAllValid) {
+
+                if ($('#swml250_quantity').val() != "") {
+                    ProductionDetails.push({
+                        ProductName: $('#swml250').val().trim(),
+                        Litter: $('#swml250_litter').val().trim(),
+                        Quantity: parseInt($('#swml250_quantity').val().trim()),
+                        QtyCase: $('#swml250_qty').val().trim(),
+                        
+                    });
+                }
+
+                if ($('#sw5ml_quantity').val() != "") {
+                    ProductionDetails.push({
+                        ProductName: $('#sw5ml').val().trim(),
+                        Litter: $('#sw5ml_litter').val().trim() ,                   
+                        Quantity: parseInt($('#sw5ml_quantity').val().trim()),
+                        QtyCase: $('#sw5ml_qty').val().trim(),
+                        
+                    });
+                }
+
+                if ($('#sw1l_quantity').val() != "") {
+                    ProductionDetails.push({
+                        ProductName: $('#sw1l').val().trim(),
+                        Litter: $('#sw1l_litter').val().trim(),
+                        Quantity: parseInt($('#sw1l_quantity').val().trim()),
+                        QtyCase: $('#sw1l_qty').val().trim(),
+                       
+                    });
+                }
+                if ($('#sw15l_quantity').val() != "") {
+                    ProductionDetails.push({
+                        ProductName: $('#sw15l').val().trim(),
+                        Litter: $('#sw15l_litter').val().trim(),
+                        Quantity: parseInt($('#sw15l_quantity').val().trim()),
+                        QtyCase: $('#sw15l_qty').val().trim(),
+                        
+                    });
+                }
+                if ($('#sw2l_quantity').val() != "") {
+                    ProductionDetails.push({
+                        ProductName: $('#sw2l').val().trim(),
+                        Litter: $('#sw2l_litter').val().trim(),
+                        Quantity: parseInt($('#sw2l_quantity').val().trim()),
+                        QtyCase: $('#sw2l_qty').val().trim(),
+                        
+                    });
+                }
+                if ($('#sw5l_quantity').val() != "") {
+                    ProductionDetails.push({
+                        ProductName: $('#sw5l').val().trim(),
+                        Litter: $('#sw5l_litter').val().trim(),
+                        Quantity: parseInt($('#sw5l_quantity').val().trim()),
+                        QtyCase: $('#sw5l_qty').val().trim(),
+                       
+                    });
+                }
+                if ($('#sw20l_quantity').val() != "") {
+                    ProductionDetails.push({
+                        ProductName: $('#sw20l').val().trim(),
+                        Litter: $('#sw20l_litter').val().trim(),
+                        Quantity: parseInt($('#sw20l_quantity').val().trim()),
+                        QtyCase: $('#sw20l_qty').val().trim(),
+                       
+                    });
+                }
+                if ($('#sw20l4_quantity').val() != "") {
+                    ProductionDetails.push({
+                        ProductName: $('#sw20l4').val().trim(),
+                        Litter: $('#sw20l4_litter').val().trim(),
+                        Quantity: parseInt($('#sw20l4_quantity').val().trim()),
+                        QtyCase: $('#sw20l4_qty').val().trim(),
+                       
+                    });
+                }
+                var data = {
+                    ProductionShift: $('#ProductionShift').val(),
+                    ProductionDate: $('#ProductionDate').val(),
+                    ProductionDetails: ProductionDetails
+                }
+                $(this).val('Please wait...');
+                console.log(ProductionDetails);
+                $.ajax({
+                    url: '/Production/AddProduction',
+                    type: "POST",
+                    data: JSON.stringify(data),
+                    dataType: "JSON",
+                    contentType: "application/json",
+                    success: function (d) {
+                        if (d.success == true) {
+                            alert(d.message);
+                            ProductionDetails = [];
+                            location.href = "/Production/NewProduction";
+                        }
+                        else {
+                            alert(d.message);
+                            ProductionDetails = [];
+                        }
+                        $('#submit').val('Save');
+                    },
+                    error: function () {
+                        alert('Error. Please try again.');
+                        $('#submit').val('Save');
+                    }
+                });
+            }
+
+        });
+        $("#swml250_quantity").on('keyup', function () {
+
+            var swml250_quantity = parseInt($(this).val());
+          
+                if (swml250_quantity != "") {
+                    if (swml250_quantity >= "15") {
+                        var modulsqty = swml250_quantity % 15;
+                        var diviqty = swml250_quantity / 15;
+                        var qty = Math.trunc(diviqty);
+                        var totalqty = qty + "C" + " " + "&" + " " + modulsqty + "Pc"
+                    }
+                    else {
+                        var totalqty = 0 + "C" + " " + "&" + " " + swml250_quantity + "Pc"
+                    }
+                    var litter = (250 / 1000) * swml250_quantity;
+
+                    $("#swml250_qty").val(totalqty);
+                    $("#swml250_litter").val(litter);
+                 
+                }
+               
+          
+        });
+        $("#sw5ml_quantity").on('keyup', function () {
+
+            var sw5ml_quantity = parseInt($(this).val());
+          
+            if (sw5ml_quantity != "") {
+                if (sw5ml_quantity >= "12") {
+                    var modulsqty = sw5ml_quantity % 12;
+                    var diviqty = sw5ml_quantity / 12;
+                    var qty = Math.trunc(diviqty);
+                    var totalqty = qty + "C" + " " + "&" + " " + modulsqty + "Pc"
+                }
+                else {
+                    var totalqty = 0 + "C" + " " + "&" + " " + sw5ml_quantity + "Pc"
+                }
+                var litter = sw5ml_quantity * 0.5;
+                $("#sw5ml_qty").val(totalqty);
+                $("#sw5ml_litter").val(litter);
+            }
+               
+        });
+
+        $("#sw1l_quantity").on('keyup', function () {
+            var sw1l_quantity = parseInt($(this).val());
+                if (sw1l_quantity != "") {
+                    if (sw1l_quantity >= "6") {
+                        var modulsqty = sw1l_quantity % 6;
+                        var diviqty = sw1l_quantity / 6;
+                        var qty = Math.trunc(diviqty);
+                        var totalqty = qty + "C" + " " + "&" + " " + modulsqty + "Pc"
+                    }
+                    else {
+                        var totalqty = 0 + "C" + " " + "&" + " " + sw1l_quantity + "Pc"
+                    }
+                    var litter = sw1l_quantity * 1.0;
+                    $("#sw1l_litter").val(litter);
+                    $("#sw1l_qty").val(totalqty);
+                   
+                }
+        });
+        $("#sw15l_quantity").on('keyup', function () {
+
+            var sw15l_quantity = parseInt($(this).val());
+                if (sw15l_quantity != "") {
+                    if (sw15l_quantity >= "6") {
+                        var modulsqty = sw15l_quantity % 6;
+                        var diviqty = sw15l_quantity / 6;
+                        var qty = Math.trunc(diviqty);
+                        var totalqty = qty + "C" + " " + "&" + " " + modulsqty + "Pc"
+                    }
+                    else {
+                        var totalqty = 0 + "C" + " " + "&" + " " + sw15l_quantity + "Pc"
+                    }
+                    var litter = sw15l_quantity * 1.5;
+                    $("#sw15l_qty").val(totalqty);
+                    $("#sw15l_litter").val(litter);
+                   
+
+                }
+             
+
+        });
+        $("#sw2l_quantity").on('keyup', function () {
+
+            var sw2l_quantity = parseInt($(this).val());
+                if (sw2l_quantity != "") {
+                    if (sw2l_quantity >= "6") {
+                        var modulsqty = sw2l_quantity % 6;
+                        var diviqty = sw2l_quantity / 6;
+                        var qty = Math.trunc(diviqty);
+                        var totalqty = qty + "C" + " " + "&" + " " + modulsqty + "Pc"
+                    }
+                    else {
+                        var totalqty = 0 + "C" + " " + "&" + " " + sw2l_quantity + "Pc"
+                    }
+                    var litter = sw2l_quantity * 2.0;
+                    $("#sw2l_qty").val(totalqty);
+                    $("#sw2l_litter").val(litter);
+                   
+                }
+        });
+        $("#sw5l_quantity").on('keyup', function () {
+
+            var sw5l_quantity = parseInt($(this).val());
+            if (sw5l_quantity != "") {
+               
+                if (sw5l_quantity >= "6") {
+                    var modulsqty = sw5l_quantity % 6;
+                    var diviqty = sw5l_quantity / 6;
+                    var qty = Math.trunc(diviqty);
+                    var totalqty = qty + "C" + " " + "&" + " " + modulsqty + "Pc"
+                }
+                else {
+                    var totalqty = 0 + "C" + " " + "&" + " " + sw5l_quantity + "Pc"
+                }
+               
+                var litter = sw5l_quantity * 5.0;
+                $("#sw5l_qty").val(totalqty);
+                $("#sw5l_litter").val(litter);
+
+            }
+        });
+        $("#sw20l_quantity").on('keyup', function () {
+
+            var sw20l_quantity = parseInt($(this).val());
+            if (sw20l_quantity != "") {
+                var totalqty = 0 + "C" + " " + "&" + " " + sw20l_quantity + "Pc"
+                var litter = sw20l_quantity * 20.0;
+                $("#sw20l_qty").val(totalqty);
+                $("#sw20l_litter").val(litter);
+
+            }
+        });
+        $("#sw20l4_quantity").on('keyup', function () {
+
+            var sw20l4_quantity = parseInt($(this).val());
+            if (sw20l4_quantity != "") {
+                
+                var totalqty = 0 + "C" + " " + "&" + " " + sw20l4_quantity + "Pc"
+             
+                var litter = sw20l4_quantity * 20.0;
+                $("#sw20l4_qty").val(totalqty);
+                $("#sw20l4_litter").val(litter);
+
+            }
+        });
+    });
+
+</script>
