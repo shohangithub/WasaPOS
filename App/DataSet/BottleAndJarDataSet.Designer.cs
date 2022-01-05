@@ -323,6 +323,14 @@ namespace App.DataSet {
             
             private global::System.Data.DataColumn columnlastValue;
             
+            private global::System.Data.DataColumn columnOtherCost;
+            
+            private global::System.Data.DataColumn columnTransportCost;
+            
+            private global::System.Data.DataColumn columnDateFrom;
+            
+            private global::System.Data.DataColumn columnDateTo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SalesStatementsDataTable() {
@@ -534,6 +542,38 @@ namespace App.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn OtherCostColumn {
+                get {
+                    return this.columnOtherCost;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TransportCostColumn {
+                get {
+                    return this.columnTransportCost;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DateFromColumn {
+                get {
+                    return this.columnDateFrom;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DateToColumn {
+                get {
+                    return this.columnDateTo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -590,7 +630,11 @@ namespace App.DataSet {
                         decimal Sw20l4TotalPrice, 
                         string MonthYear, 
                         string firstvalue, 
-                        string lastValue) {
+                        string lastValue, 
+                        decimal OtherCost, 
+                        decimal TransportCost, 
+                        string DateFrom, 
+                        string DateTo) {
                 SalesStatementsRow rowSalesStatementsRow = ((SalesStatementsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -614,7 +658,11 @@ namespace App.DataSet {
                         Sw20l4TotalPrice,
                         MonthYear,
                         firstvalue,
-                        lastValue};
+                        lastValue,
+                        OtherCost,
+                        TransportCost,
+                        DateFrom,
+                        DateTo};
                 rowSalesStatementsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSalesStatementsRow);
                 return rowSalesStatementsRow;
@@ -666,6 +714,10 @@ namespace App.DataSet {
                 this.columnMonthYear = base.Columns["MonthYear"];
                 this.columnfirstvalue = base.Columns["firstvalue"];
                 this.columnlastValue = base.Columns["lastValue"];
+                this.columnOtherCost = base.Columns["OtherCost"];
+                this.columnTransportCost = base.Columns["TransportCost"];
+                this.columnDateFrom = base.Columns["DateFrom"];
+                this.columnDateTo = base.Columns["DateTo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -715,6 +767,14 @@ namespace App.DataSet {
                 base.Columns.Add(this.columnfirstvalue);
                 this.columnlastValue = new global::System.Data.DataColumn("lastValue", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlastValue);
+                this.columnOtherCost = new global::System.Data.DataColumn("OtherCost", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOtherCost);
+                this.columnTransportCost = new global::System.Data.DataColumn("TransportCost", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransportCost);
+                this.columnDateFrom = new global::System.Data.DataColumn("DateFrom", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateFrom);
+                this.columnDateTo = new global::System.Data.DataColumn("DateTo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateTo);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnSalesStatementId}, true));
                 this.columnSalesStatementId.AutoIncrement = true;
@@ -1144,6 +1204,70 @@ namespace App.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal OtherCost {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSalesStatements.OtherCostColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OtherCost\' in table \'SalesStatements\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSalesStatements.OtherCostColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal TransportCost {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSalesStatements.TransportCostColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TransportCost\' in table \'SalesStatements\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSalesStatements.TransportCostColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DateFrom {
+                get {
+                    try {
+                        return ((string)(this[this.tableSalesStatements.DateFromColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateFrom\' in table \'SalesStatements\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSalesStatements.DateFromColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DateTo {
+                get {
+                    try {
+                        return ((string)(this[this.tableSalesStatements.DateToColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateTo\' in table \'SalesStatements\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSalesStatements.DateToColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsProduct_ProductIdNull() {
                 return this.IsNull(this.tableSalesStatements.Product_ProductIdColumn);
             }
@@ -1188,6 +1312,54 @@ namespace App.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetlastValueNull() {
                 this[this.tableSalesStatements.lastValueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOtherCostNull() {
+                return this.IsNull(this.tableSalesStatements.OtherCostColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOtherCostNull() {
+                this[this.tableSalesStatements.OtherCostColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTransportCostNull() {
+                return this.IsNull(this.tableSalesStatements.TransportCostColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTransportCostNull() {
+                this[this.tableSalesStatements.TransportCostColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDateFromNull() {
+                return this.IsNull(this.tableSalesStatements.DateFromColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDateFromNull() {
+                this[this.tableSalesStatements.DateFromColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDateToNull() {
+                return this.IsNull(this.tableSalesStatements.DateToColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDateToNull() {
+                this[this.tableSalesStatements.DateToColumn] = global::System.Convert.DBNull;
             }
         }
         

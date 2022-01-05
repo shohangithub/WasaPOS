@@ -868,13 +868,108 @@ namespace App.Controllers
             }
             DateTime sdate = Convert.ToDateTime(fromdate);
             DateTime edate = Convert.ToDateTime(todate);
-            
+
             List<SalesStatement> cm = new List<SalesStatement>();
 
-            cm = db.SalesStatements.Where(c => c.StatementDate >= sdate && c.StatementDate <= edate).ToList();          
-                        
+            cm = db.SalesStatements.Where(c => c.StatementDate >= sdate && c.StatementDate <= edate).ToList();
+
             ReportDataSource rd = new ReportDataSource("AllStatementDataSet", cm);
+
             lr.DataSources.Add(rd);
+
+
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+
+            string deviceInfo =
+            "<DeviceInfo>" +
+            "  <OutputFormat>" + id + "</OutputFormat>" +
+            "  <PageWidth>8.5in</PageWidth>" +
+            "  <PageHeight>11in</PageHeight>" +
+            "  <MarginTop>0.3in</MarginTop>" +
+            "  <MarginLeft>0.3in</MarginLeft>" +
+            "  <MarginRight>0.3in</MarginRight>" +
+            "  <MarginBottom>0.10in</MarginBottom>" +
+            "</DeviceInfo>";
+
+            byte[] renderedByte = null;
+            string[] streams = null;
+            Warning[] warnings = null;
+
+            renderedByte = lr.Render(
+                id,
+                deviceInfo,
+                out mimeType,
+                out encoding,
+                out fileNameExtension,
+                out streams,
+                out warnings);
+            return File(renderedByte, mimeType);
+        }
+
+        public ActionResult BottleAndJarSaleWithServiceCharge(string fromdate, string todate)
+        {
+            string id = "pdf";
+            LocalReport lr = new LocalReport();
+            string path = Path.Combine(Server.MapPath("~/Reports"), "BottleAndJarSaleWithSvcCharge.rdlc");
+            if (System.IO.File.Exists(path))
+            {
+                lr.ReportPath = path;
+            }
+            else
+            {
+                return View("");
+            }
+            DataTable cm = new DataTable();
+            string connString2 = ConfigurationManager.ConnectionStrings["ShantiPOS"].ConnectionString;
+            string query2 = $@"
+                        SELECT SalesStatementId
+                              ,StatementDate
+                              ,Swml250Quantity
+                              ,Swml250TotalPrice
+                              ,Sw5mlQuantity
+                              ,Sw5mlTotalPrice
+                              ,Sw1lQuantity
+                              ,Sw1lTotalPrice
+                              ,Sw15lQuintity
+                              ,Sw15lTotalPrice
+                              ,Sw2lQuintity
+                              ,Sw2lTotalPrice
+                              ,Sw5lQuintity
+                              ,Sw5lTotalPrice
+                              ,Sw20lQuintity
+                              ,Sw20lTotalPrice
+                              ,Sw20l4Quintity
+                              ,Sw20l4TotalPrice
+                              ,Status
+                              ,AddedById
+                              ,AddedDate
+                              ,ModifiedById
+                              ,ModifiedDate
+                              ,IpAddress
+                              ,IsDeleted
+                              ,Product_ProductId
+                              ,Customer_CustomerId
+	                          ,(SELECT ISNULL(SUM(TransportCost),0) FROM Sales WHERE SaleDate = StatementDate AND IsDeleted = 0) AS TransportCost
+	                          ,(SELECT ISNULL(SUM(OtherCost),0) FROM Sales WHERE SaleDate = StatementDate AND IsDeleted = 0) AS OtherCost
+                              ,CONVERT(DATETIME,'{fromdate}') AS DateFrom
+                              ,CONVERT(DATETIME,'{todate}') AS DateTo
+                          FROM SalesStatements 
+                          WHERE StatementDate BETWEEN '{fromdate}' AND '{todate}'";
+
+            using (SqlConnection conn2 = new SqlConnection(connString2))
+            {
+                SqlDataAdapter da2 = new SqlDataAdapter(query2, conn2);
+                da2.Fill(cm);
+
+                ReportDataSource rd = new ReportDataSource("AllStatementDataSet", cm);
+                lr.DataSources.Add(rd);
+            }
+
+
+
+
             string mimeType;
             string encoding;
             string fileNameExtension;
@@ -1191,7 +1286,32 @@ namespace App.Controllers
             }
             DataTable cm = new DataTable();
             string connString2 = ConfigurationManager.ConnectionStrings["ShantiPOS"].ConnectionString;
-            string query2 = "select CustomerName,DailyStatementDate,ReceieptNo,Swml250Quantity,Swml250TotalPrice,Sw5mlQuantity,Sw5mlTotalPrice,Sw1lQuantity,Sw1lTotalPrice,Sw15lQuintity,Sw15lTotalPrice,Sw2lQuintity,Sw2lTotalPrice,Sw5lQuintity,Sw5lTotalPrice from DailySalesStatements where DailyStatementDate = '" + todate + "' and (Swml250Quantity>0 or Sw5mlQuantity>0 Or Sw1lQuantity>0 or Sw15lQuintity>0 or Sw2lQuintity>0 or Sw5lQuintity>0 ) ";
+            string query2 = $@"
+                            SELECT CustomerName
+	                            ,DailyStatementDate
+	                            ,ReceieptNo
+	                            ,Swml250Quantity
+	                            ,Swml250TotalPrice
+	                            ,Sw5mlQuantity
+	                            ,Sw5mlTotalPrice
+	                            ,Sw1lQuantity
+	                            ,Sw1lTotalPrice
+	                            ,Sw15lQuintity
+	                            ,Sw15lTotalPrice
+	                            ,Sw2lQuintity
+	                            ,Sw2lTotalPrice
+	                            ,Sw5lQuintity
+	                            ,Sw5lTotalPrice
+	                            ,OtherCost
+	                            ,TransportCost
+                            FROM DailySalesStatements 
+                            INNER JOIN Sales ON Sales.InvoiceId = DailySalesStatements.ReceieptNo
+                            where DailyStatementDate = '{todate}' 
+                            and (Swml250Quantity> 0 or Sw5mlQuantity> 0 Or Sw1lQuantity> 0 or Sw15lQuintity> 0 or Sw2lQuintity> 0 or Sw5lQuintity> 0 );
+                            ";
+
+
+           // string query2 = "select CustomerName,DailyStatementDate,ReceieptNo,Swml250Quantity,Swml250TotalPrice,Sw5mlQuantity,Sw5mlTotalPrice,Sw1lQuantity,Sw1lTotalPrice,Sw15lQuintity,Sw15lTotalPrice,Sw2lQuintity,Sw2lTotalPrice,Sw5lQuintity,Sw5lTotalPrice from DailySalesStatements where DailyStatementDate = '" + todate + "' and (Swml250Quantity>0 or Sw5mlQuantity>0 Or Sw1lQuantity>0 or Sw15lQuintity>0 or Sw2lQuintity>0 or Sw5lQuintity>0 ) ";
 
             using (SqlConnection conn2 = new SqlConnection(connString2))
             {
@@ -1301,7 +1421,25 @@ namespace App.Controllers
             }
             DataTable cm = new DataTable();
             string connString2 = ConfigurationManager.ConnectionStrings["ShantiPOS"].ConnectionString;
-            string query2 = "select CustomerName,DailyStatementDate,ReceieptNo,Sw20lQuintity,Sw20lTotalPrice,Sw20l4Quintity,Sw20l4TotalPrice from DailySalesStatements where DailyStatementDate = '"+ todate + "' and (Sw20lQuintity >0 or Sw20l4Quintity >0)";
+            string query2 = $@"
+                        SELECT CustomerName
+                        ,DailyStatementDate
+                        ,ReceieptNo
+                        ,Sw20lQuintity
+                        ,Sw20lTotalPrice
+                        ,Sw20l4Quintity
+                        ,Sw20l4TotalPrice
+                        ,OtherCost
+                        ,TransportCost
+                        FROM DailySalesStatements
+                        INNER JOIN Sales ON Sales.InvoiceId = DailySalesStatements.ReceieptNo
+                        WHERE DailyStatementDate = '{todate}'
+                        AND (
+                        Sw20lQuintity > 0
+                        OR Sw20l4Quintity > 0
+                        );";
+
+           // string query2 = "select CustomerName,DailyStatementDate,ReceieptNo,Sw20lQuintity,Sw20lTotalPrice,Sw20l4Quintity,Sw20l4TotalPrice from DailySalesStatements where DailyStatementDate = '"+ todate + "' and (Sw20lQuintity >0 or Sw20l4Quintity >0)";
 
             using (SqlConnection conn2 = new SqlConnection(connString2))
             {

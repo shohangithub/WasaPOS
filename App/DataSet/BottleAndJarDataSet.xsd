@@ -10,7 +10,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SalesStatementsTableAdapter" GeneratorDataComponentClassName="SalesStatementsTableAdapter" Name="SalesStatements" UserDataComponentName="SalesStatementsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ShantiPOS (Web.config)" DbObjectName="POS.dbo.SalesStatements" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ShantiPOS (Web.config)" DbObjectName="WasaPOS.dbo.SalesStatements" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [SalesStatements] WHERE (([SalesStatementId] = @Original_SalesStatementId))</CommandText>
@@ -143,6 +143,10 @@
               <xs:element name="MonthYear" msprop:Generator_ColumnVarNameInTable="columnMonthYear" msprop:Generator_ColumnPropNameInRow="MonthYear" msprop:Generator_ColumnPropNameInTable="MonthYearColumn" msprop:Generator_UserColumnName="MonthYear" type="xs:string" minOccurs="0" />
               <xs:element name="firstvalue" msprop:Generator_ColumnVarNameInTable="columnfirstvalue" msprop:Generator_ColumnPropNameInRow="firstvalue" msprop:Generator_ColumnPropNameInTable="firstvalueColumn" msprop:Generator_UserColumnName="firstvalue" type="xs:string" minOccurs="0" />
               <xs:element name="lastValue" msprop:Generator_ColumnVarNameInTable="columnlastValue" msprop:Generator_ColumnPropNameInRow="lastValue" msprop:Generator_ColumnPropNameInTable="lastValueColumn" msprop:Generator_UserColumnName="lastValue" type="xs:string" minOccurs="0" />
+              <xs:element name="OtherCost" msprop:Generator_ColumnVarNameInTable="columnOtherCost" msprop:Generator_ColumnPropNameInRow="OtherCost" msprop:Generator_ColumnPropNameInTable="OtherCostColumn" msprop:Generator_UserColumnName="OtherCost" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TransportCost" msprop:Generator_ColumnVarNameInTable="columnTransportCost" msprop:Generator_ColumnPropNameInRow="TransportCost" msprop:Generator_ColumnPropNameInTable="TransportCostColumn" msprop:Generator_UserColumnName="TransportCost" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DateFrom" msprop:Generator_ColumnVarNameInTable="columnDateFrom" msprop:Generator_ColumnPropNameInRow="DateFrom" msprop:Generator_ColumnPropNameInTable="DateFromColumn" msprop:Generator_UserColumnName="DateFrom" type="xs:string" minOccurs="0" />
+              <xs:element name="DateTo" msprop:Generator_ColumnVarNameInTable="columnDateTo" msprop:Generator_ColumnPropNameInRow="DateTo" msprop:Generator_ColumnPropNameInTable="DateToColumn" msprop:Generator_UserColumnName="DateTo" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

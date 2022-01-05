@@ -1339,6 +1339,11 @@ namespace App.Controllers
             return View();
         }
         [CheckAuthorization]
+        public ActionResult BottleAndJarSaleWithService()
+        {
+            return View();
+        }
+        [CheckAuthorization]
         public ActionResult BottleAndJarSales()
         {
             return View();

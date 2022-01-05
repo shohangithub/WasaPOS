@@ -817,6 +817,7 @@
     <Content Include="Views\Sale\VatBottleRecordLists.cshtml" />
     <Content Include="Views\Sale\DailyBottleVatRecords.cshtml" />
     <Content Include="Views\Report\ServiceAndWrappingChargeReport.cshtml" />
+    <Content Include="Views\Sale\BottleAndJarSaleWithService.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -845,6 +846,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\BottleAndJarProduction.rdlc" />
+    <EmbeddedResource Include="Reports\BottleAndJarSaleWithSvcCharge.rdlc" />
     <EmbeddedResource Include="Reports\BottleProduction.rdlc" />
     <EmbeddedResource Include="Reports\DailyBottleSale.rdlc" />
     <EmbeddedResource Include="Reports\JarProduction.rdlc" />

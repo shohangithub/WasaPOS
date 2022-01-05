@@ -132,7 +132,7 @@
   <xs:element name="DailySalesDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DailySalesDataSet" msprop:Generator_UserDSName="DailySalesDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DailySalesStatements" msprop:Generator_TableClassName="DailySalesStatementsDataTable" msprop:Generator_TableVarName="tableDailySalesStatements" msprop:Generator_TablePropName="DailySalesStatements" msprop:Generator_RowDeletingName="DailySalesStatementsRowDeleting" msprop:Generator_RowChangingName="DailySalesStatementsRowChanging" msprop:Generator_RowEvHandlerName="DailySalesStatementsRowChangeEventHandler" msprop:Generator_RowDeletedName="DailySalesStatementsRowDeleted" msprop:Generator_UserTableName="DailySalesStatements" msprop:Generator_RowChangedName="DailySalesStatementsRowChanged" msprop:Generator_RowEvArgName="DailySalesStatementsRowChangeEvent" msprop:Generator_RowClassName="DailySalesStatementsRow">
+        <xs:element name="DailySalesStatements" msprop:Generator_TableClassName="DailySalesStatementsDataTable" msprop:Generator_TableVarName="tableDailySalesStatements" msprop:Generator_RowChangedName="DailySalesStatementsRowChanged" msprop:Generator_TablePropName="DailySalesStatements" msprop:Generator_RowDeletingName="DailySalesStatementsRowDeleting" msprop:Generator_RowChangingName="DailySalesStatementsRowChanging" msprop:Generator_RowEvHandlerName="DailySalesStatementsRowChangeEventHandler" msprop:Generator_RowDeletedName="DailySalesStatementsRowDeleted" msprop:Generator_RowClassName="DailySalesStatementsRow" msprop:Generator_UserTableName="DailySalesStatements" msprop:Generator_RowEvArgName="DailySalesStatementsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DailySalesStatementId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnDailySalesStatementId" msprop:Generator_ColumnPropNameInRow="DailySalesStatementId" msprop:Generator_ColumnPropNameInTable="DailySalesStatementIdColumn" msprop:Generator_UserColumnName="DailySalesStatementId" type="xs:long" />
@@ -192,6 +192,8 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="IsDeleted" msprop:Generator_ColumnVarNameInTable="columnIsDeleted" msprop:Generator_ColumnPropNameInRow="IsDeleted" msprop:Generator_ColumnPropNameInTable="IsDeletedColumn" msprop:Generator_UserColumnName="IsDeleted" type="xs:boolean" />
+              <xs:element name="OtherCost" msprop:Generator_ColumnVarNameInTable="columnOtherCost" msprop:Generator_ColumnPropNameInRow="OtherCost" msprop:Generator_ColumnPropNameInTable="OtherCostColumn" msprop:Generator_UserColumnName="OtherCost" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TransportCost" msprop:Generator_ColumnVarNameInTable="columnTransportCost" msprop:Generator_ColumnPropNameInRow="TransportCost" msprop:Generator_ColumnPropNameInTable="TransportCostColumn" msprop:Generator_UserColumnName="TransportCost" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
