@@ -8,7 +8,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_NewBackgroundProfile>True</_NewBackgroundProfile>
     <_PublishTargetUrl>F:\LinkupProject\WasaPublish</_PublishTargetUrl>
-    <History>True|2021-12-11T09:48:58.9104981Z;True|2021-12-11T15:15:44.2887864+06:00;True|2021-12-08T00:39:24.5071212+06:00;</History>
+    <History>True|2022-01-16T16:04:46.5659322Z;True|2022-01-05T20:28:08.6913567+06:00;True|2021-12-11T15:48:58.9104981+06:00;True|2021-12-11T15:15:44.2887864+06:00;True|2021-12-08T00:39:24.5071212+06:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -21,22 +21,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/01/2020 12:01:45</publishTime>
     </File>
     <File Include="bin/App.dll">
-      <publishTime>12/11/2021 15:15:42</publishTime>
+      <publishTime>01/16/2022 22:04:44</publishTime>
     </File>
     <File Include="bin/App.pdb">
-      <publishTime>12/11/2021 15:15:42</publishTime>
+      <publishTime>01/16/2022 22:04:44</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
       <publishTime>07/01/2020 12:01:45</publishTime>
     </File>
     <File Include="bin/Data.dll">
-      <publishTime>12/11/2021 15:15:39</publishTime>
+      <publishTime>01/16/2022 22:04:42</publishTime>
     </File>
     <File Include="bin/Data.dll.config">
       <publishTime>07/01/2020 12:01:45</publishTime>
     </File>
     <File Include="bin/Data.pdb">
-      <publishTime>12/11/2021 15:15:39</publishTime>
+      <publishTime>01/16/2022 22:04:42</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>07/01/2020 12:01:45</publishTime>
@@ -273,10 +273,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/01/2020 12:01:45</publishTime>
     </File>
     <File Include="DataSet/BottleAndJarDataSet.xsc">
-      <publishTime>07/01/2020 12:01:45</publishTime>
+      <publishTime>01/05/2022 20:11:11</publishTime>
     </File>
     <File Include="DataSet/BottleAndJarDataSet.xss">
-      <publishTime>07/01/2020 12:01:45</publishTime>
+      <publishTime>01/05/2022 20:11:11</publishTime>
     </File>
     <File Include="DataSet/ChalanAndGetpass.xsc">
       <publishTime>07/01/2020 12:01:45</publishTime>
@@ -285,10 +285,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/01/2020 12:01:45</publishTime>
     </File>
     <File Include="DataSet/DailySalesDataSet.xsc">
-      <publishTime>07/01/2020 12:01:45</publishTime>
+      <publishTime>01/03/2022 21:47:06</publishTime>
     </File>
     <File Include="DataSet/DailySalesDataSet.xss">
-      <publishTime>07/01/2020 12:01:45</publishTime>
+      <publishTime>01/03/2022 21:47:06</publishTime>
     </File>
     <File Include="DataSet/DueCollectionDataSet.xsc">
       <publishTime>07/01/2020 12:01:45</publishTime>
@@ -363,10 +363,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/01/2020 12:01:45</publishTime>
     </File>
     <File Include="DataSet/WaterSaleUserDataSet.xsc">
-      <publishTime>07/01/2020 12:01:45</publishTime>
+      <publishTime>01/16/2022 21:44:35</publishTime>
     </File>
     <File Include="DataSet/WaterSaleUserDataSet.xss">
-      <publishTime>07/01/2020 12:01:45</publishTime>
+      <publishTime>01/16/2022 21:44:35</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>07/01/2020 12:01:45</publishTime>
@@ -1037,6 +1037,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Sale/BottleAndJarSales.cshtml">
       <publishTime>07/01/2020 12:01:45</publishTime>
     </File>
+    <File Include="Views/Sale/BottleAndJarSaleWithService.cshtml">
+      <publishTime>01/05/2022 19:38:54</publishTime>
+    </File>
     <File Include="Views/Sale/BottleSale.cshtml">
       <publishTime>07/01/2020 12:01:45</publishTime>
     </File>
@@ -1128,10 +1131,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/01/2020 12:01:45</publishTime>
     </File>
     <File Include="Views/Sale/SaleEntry.cshtml">
-      <publishTime>12/08/2021 00:23:27</publishTime>
+      <publishTime>12/29/2021 11:15:10</publishTime>
     </File>
     <File Include="Views/Sale/SaleInCashEntry.cshtml">
-      <publishTime>12/08/2021 00:04:46</publishTime>
+      <publishTime>12/29/2021 11:16:07</publishTime>
     </File>
     <File Include="Views/Sale/SaleList.cshtml">
       <publishTime>07/01/2020 12:01:45</publishTime>
@@ -1215,7 +1218,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/01/2020 12:01:45</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>12/10/2021 00:52:30</publishTime>
+      <publishTime>01/05/2022 19:41:04</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>07/01/2020 12:01:45</publishTime>

@@ -433,7 +433,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!TotalPrice.Value</Value>
+                              <Value>=Fields!TotalPrice.Value + Fields!TransportCost.Value + Fields!OtherCost.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -1731,10 +1731,14 @@
           <DataField>AvgDueAmount</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="OtherCost">
+          <DataField>OtherCost</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>WaterSaleUserDataSet</rd:DataSetName>
-        <rd:SchemaPath>E:\PosWorkSpace\POS\POS\App\DataSet\WaterSaleUserDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>F:\LinkupProject\WasaPOS\App\DataSet\WaterSaleUserDataSet.xsd</rd:SchemaPath>
         <rd:TableName>SalesUser</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

@@ -550,13 +550,13 @@
                 }
 
                 if (swml250_unit == 6) {
-                    var vat = swml250_quantity * 1.59;
+                    var vat = swml250_quantity * .78;
                 }
                 else {
-                    var vat = swml250_quantity * 1.59;
+                    var vat = swml250_quantity * .91;
                 }
                 if (swml250_unit == 6) {
-                    var sd = swml250_quantity * .29;
+                    var sd = swml250_quantity * .25;
                 }
                 else {
                     var sd = swml250_quantity * .29;
@@ -611,13 +611,13 @@
                     vat = 1.17 * sw5ml_quantity;
                 }
                 else {
-                    vat = 1.17 * sw5ml_quantity;
+                    vat = 1.31 * sw5ml_quantity;
                 }
                 if (sw5ml_unit == "9") {
                     sd = sw5ml_quantity * .37;
                 }
                 else {
-                    sd = sw5ml_quantity * .37;
+                    sd = sw5ml_quantity * .41;
                 }
                 $("#sw5ml_Total_vat").val(parseFloat(vat).toFixed(2));
 
@@ -669,13 +669,13 @@
                     vat = sw1l_quantity * 1.70;
                 }
                 else {
-                    vat = sw1l_quantity * 1.70;
+                    vat = sw1l_quantity * 1.95;
                 }
                 if (sw1l_unit == "13") {
                     sd = sw1l_quantity * 0.54;
                 }
                 else {
-                    sd = sw1l_quantity * 0.54;
+                    sd = sw1l_quantity * 0.62;
                 }
                 $("#sw1l_Total_vat").val(parseFloat(vat).toFixed(2));
                 //ar totalsd = (allPrice / 100) * sdtpercent;
@@ -720,17 +720,18 @@
                     tolalPrice = parseInt(sw15l_quantity * sw15l_unit);
                 }
 
+
                 if (sw15l_unit == "16") {
                     vat = sw15l_quantity * 2.09;
                 }
                 else {
-                    vat = sw15l_quantity * 2.09;
+                    vat = sw15l_quantity * 2.34;
                 }
                 if (sw15l_unit == "16") {
                     sd = sw15l_quantity * 0.66;
                 }
                 else {
-                    sd = sw15l_quantity * 0.66;
+                    sd = sw15l_quantity * 0.74;
                 }
                 $("#sw15l_Total_vat").val(parseFloat(vat).toFixed(2));
                 //ar totalsd = (allPrice / 100) * sdtpercent;
@@ -783,13 +784,13 @@
                     vat = sw2l_quantity * 2.61;
                 }
                 else {
-                    vat = sw2l_quantity * 2.61;
+                    vat = sw2l_quantity * 2.86;
                 }
                 if (sw2l_unit == "20") {
                     sd = sw2l_quantity * 0.82;
                 }
                 else {
-                    sd = sw2l_quantity * 0.82;
+                    sd = sw2l_quantity * 0.91;
                 }
                 $("#sw2l_qty").val(totalqty);
                 $("#sw2l_Total_amount").val(tolalPrice);
@@ -830,10 +831,10 @@
 
 
                 if (sw5l_unit == "40") {
-                    vat = sw5l_quantity * 5.00;
+                    vat = sw5l_quantity * 5.22;
                 }
                 else {
-                    vat = sw5l_quantity * 5.00;
+                    vat = sw5l_quantity * 5.86;
                 }
 
                 $("#sw5l_qty").val(totalqty);
@@ -1206,13 +1207,13 @@
                         }
 
                         if (swml250_unit == 6) {
-                            var vat = swml250_quantity * 1.59;
+                            var vat = swml250_quantity * .78;
                         }
                         else {
-                            var vat = swml250_quantity * 1.59;
+                            var vat = swml250_quantity * .91;
                         }
                         if (swml250_unit == 6) {
-                            var sd = swml250_quantity * .29;
+                            var sd = swml250_quantity * .25;
                         }
                         else {
                             var sd = swml250_quantity * .29;
@@ -1278,13 +1279,13 @@
                             vat = 1.17 * sw5ml_quantity;
                         }
                         else {
-                            vat = 1.17 * sw5ml_quantity;
+                            vat = 1.31 * sw5ml_quantity;
                         }
                         if (sw5ml_unit == "9") {
-                            sd =  sw5ml_quantity * .37;
+                            sd = sw5ml_quantity * .37;
                         }
                         else {
-                            sd = sw5ml_quantity * .37 ;
+                            sd = sw5ml_quantity * .41;
                         }
                         $("#sw5ml_Total_vat").val(parseFloat(vat).toFixed(2));
                     
@@ -1348,13 +1349,13 @@
                             vat = sw1l_quantity * 1.70;
                         }
                         else {
-                            vat = sw1l_quantity * 1.70;
+                            vat = sw1l_quantity * 1.95;
                         }
                         if (sw1l_unit == "13") {
                             sd = sw1l_quantity * 0.54;
                         }
                         else {
-                            sd = sw1l_quantity * 0.54;
+                            sd = sw1l_quantity * 0.62;
                         }
                         $("#sw1l_Total_vat").val(parseFloat(vat).toFixed(2));
                         //ar totalsd = (allPrice / 100) * sdtpercent;
@@ -1410,17 +1411,18 @@
                             tolalPrice = parseInt(sw15l_quantity * sw15l_unit);
                         }
 
+
                         if (sw15l_unit == "16") {
-                            vat =sw15l_quantity * 2.09;
-                        }
-                        else {
                             vat = sw15l_quantity * 2.09;
                         }
+                        else {
+                            vat = sw15l_quantity * 2.34;
+                        }
                         if (sw15l_unit == "16") {
                             sd = sw15l_quantity * 0.66;
                         }
                         else {
-                            sd = sw15l_quantity * 0.66;
+                            sd = sw15l_quantity * 0.74;
                         }
                         $("#sw15l_Total_vat").val(parseFloat(vat).toFixed(2));
                         //ar totalsd = (allPrice / 100) * sdtpercent;
@@ -1483,13 +1485,13 @@
                             vat = sw2l_quantity * 2.61;
                         }
                         else {
-                            vat = sw2l_quantity * 2.61;
+                            vat = sw2l_quantity * 2.86;
                         }
                         if (sw2l_unit == "20") {
                             sd = sw2l_quantity * 0.82;
                         }
                         else {
-                            sd = sw2l_quantity * 0.82;
+                            sd = sw2l_quantity * 0.91;
                         }
                         $("#sw2l_qty").val(totalqty);
                         $("#sw2l_Total_amount").val(tolalPrice);
@@ -1541,10 +1543,10 @@
 
 
                         if (sw5l_unit == "40") {
-                            vat = sw5l_quantity * 5.00;
+                            vat = sw5l_quantity * 5.22;
                         }
                         else {
-                            vat = sw5l_quantity * 5.00;
+                            vat = sw5l_quantity * 5.86;
                         }
                        
                         $("#sw5l_qty").val(totalqty);
@@ -1644,10 +1646,10 @@
                     var totalqty = 0 + "C" + " " + "&" + " " + sw20l4_quantity + "Pc"
 
                     if (sw20l4_unit == "30") {
-                        vat = sw20l4_quantity * 3.9;
+                        vat = sw20l4_quantity * 3.91;
                     }
                     else {
-                        vat = sw20l4_quantity * 3.9;
+                        vat = sw20l4_quantity * 5.21;
                     }
                     $("#sw20l4_qty").val(totalqty);
                     $("#sw20l4_Total_amount").val(tolalPrice);
