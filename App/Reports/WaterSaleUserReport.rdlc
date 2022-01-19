@@ -496,14 +496,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="NetTotal2">
+                    <Textbox Name="AvgCashReceive">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=IIF(Fields!DueAmount.Value &gt; 0,Fields!DueAmount.Value,Fields!TotalPrice.Value + Fields!TransportCost.Value + Fields!OtherCost.Value)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -514,7 +514,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>NetTotal2</rd:DefaultName>
+                      <rd:DefaultName>AvgCashReceive</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -726,7 +726,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Ceiling(Sum(Fields!AvgCashReceive.Value))</Value>
+                              <Value>=Ceiling(Sum(IIF(Fields!DueAmount.Value &gt; 0,Fields!DueAmount.Value,Fields!TotalPrice.Value + Fields!TransportCost.Value + Fields!OtherCost.Value)))</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>

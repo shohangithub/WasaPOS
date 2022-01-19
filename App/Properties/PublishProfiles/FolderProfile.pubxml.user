@@ -8,7 +8,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_NewBackgroundProfile>True</_NewBackgroundProfile>
     <_PublishTargetUrl>F:\LinkupProject\WasaPublish</_PublishTargetUrl>
-    <History>True|2022-01-16T16:04:46.5659322Z;True|2022-01-05T20:28:08.6913567+06:00;True|2021-12-11T15:48:58.9104981+06:00;True|2021-12-11T15:15:44.2887864+06:00;True|2021-12-08T00:39:24.5071212+06:00;</History>
+    <History>True|2022-01-19T18:05:32.6231616Z;True|2022-01-19T23:27:15.2551665+06:00;True|2022-01-18T21:47:11.5040247+06:00;True|2022-01-16T22:04:46.5659322+06:00;True|2022-01-05T20:28:08.6913567+06:00;True|2021-12-11T15:48:58.9104981+06:00;True|2021-12-11T15:15:44.2887864+06:00;True|2021-12-08T00:39:24.5071212+06:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -21,22 +21,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/01/2020 12:01:45</publishTime>
     </File>
     <File Include="bin/App.dll">
-      <publishTime>01/16/2022 22:04:44</publishTime>
+      <publishTime>01/20/2022 00:05:31</publishTime>
     </File>
     <File Include="bin/App.pdb">
-      <publishTime>01/16/2022 22:04:44</publishTime>
+      <publishTime>01/20/2022 00:05:31</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
       <publishTime>07/01/2020 12:01:45</publishTime>
     </File>
     <File Include="bin/Data.dll">
-      <publishTime>01/16/2022 22:04:42</publishTime>
+      <publishTime>01/19/2022 23:27:10</publishTime>
     </File>
     <File Include="bin/Data.dll.config">
       <publishTime>07/01/2020 12:01:45</publishTime>
     </File>
     <File Include="bin/Data.pdb">
-      <publishTime>01/16/2022 22:04:42</publishTime>
+      <publishTime>01/19/2022 23:27:10</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>07/01/2020 12:01:45</publishTime>

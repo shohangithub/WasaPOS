@@ -1302,10 +1302,7 @@ namespace App.Controllers
 	                            ,Sw2lTotalPrice
 	                            ,Sw5lQuintity
 	                            ,Sw5lTotalPrice
-	                            ,OtherCost
-	                            ,TransportCost
                             FROM DailySalesStatements 
-                            INNER JOIN Sales ON Sales.InvoiceId = DailySalesStatements.ReceieptNo
                             where DailyStatementDate = '{todate}' 
                             and (Swml250Quantity> 0 or Sw5mlQuantity> 0 Or Sw1lQuantity> 0 or Sw15lQuintity> 0 or Sw2lQuintity> 0 or Sw5lQuintity> 0 );
                             ";
@@ -1429,10 +1426,7 @@ namespace App.Controllers
                         ,Sw20lTotalPrice
                         ,Sw20l4Quintity
                         ,Sw20l4TotalPrice
-                        ,OtherCost
-                        ,TransportCost
                         FROM DailySalesStatements
-                        INNER JOIN Sales ON Sales.InvoiceId = DailySalesStatements.ReceieptNo
                         WHERE DailyStatementDate = '{todate}'
                         AND (
                         Sw20lQuintity > 0

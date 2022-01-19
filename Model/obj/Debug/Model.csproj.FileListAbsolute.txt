@@ -157,7 +157,6 @@ F:\LinkupProject\WasaPOS\Model\bin\Debug\System.Web.Razor.xml
 F:\LinkupProject\WasaPOS\Model\bin\Debug\System.Web.WebPages.xml
 F:\LinkupProject\WasaPOS\Model\bin\Debug\System.Web.WebPages.Deployment.xml
 F:\LinkupProject\WasaPOS\Model\bin\Debug\System.Web.WebPages.Razor.xml
-F:\LinkupProject\WasaPOS\Model\obj\Debug\Model.csprojAssemblyReference.cache
 F:\LinkupProject\WasaPOS\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 F:\LinkupProject\WasaPOS\Model\obj\Debug\Model.csproj.CopyComplete
 F:\LinkupProject\WasaPOS\Model\obj\Debug\Model.dll
