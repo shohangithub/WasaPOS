@@ -406,12 +406,19 @@ namespace App.Controllers
                 }
                 try
                 {
-                    db.SaveChanges();
-                    msg = "Sales update Successfully!";
-                    DailySaleStatement(salesEdit.SaleDate,salesEdit.InvoiceId,vm.CustomerName);//Post :Daily  Sales Customer Wise Create And Update  Function Call
-                    AddUpdateSaleStatement(salesEdit.SaleDate);//Post :Daily  Sales Total Create And Update  Function Call
-                    SaleId = vm.SaleId;
-                    return true;
+                    if(db.SaveChanges() > 0)
+                    {
+                        if(AddUpdateSaleStatement(salesEdit.SaleDate) > 0) //Post :Daily  Sales Total Create And Update  Function Call 
+                        {
+                            DailySaleStatement(salesEdit.SaleDate, salesEdit.InvoiceId, vm.CustomerName);//Post :Daily  Sales Customer Wise Create And Update  Function Call
+                        }
+                        msg = "Sales update Successfully!";
+                        SaleId = vm.SaleId;
+                        return true;
+                    }
+                   
+                   
+                    return false;
                 }
                 catch (Exception ex)
                 {
@@ -506,12 +513,18 @@ namespace App.Controllers
                     }
 
                     db.Sales.Add(sale);
-                    db.SaveChanges();
-                    msg = "Sales Added Successfully!";
-                    AddUpdateSaleStatement(sale.SaleDate); //Post :Daily  Sales Total Create And Update  Function Call
-                    DailySaleStatement(sale.SaleDate,sale.InvoiceId,vm.CustomerName);//Post :Daily  Sales Customer Wise Create And Update  Function Call
-                    SaleId = sale.SaleId;
-                    return true;
+                    if(db.SaveChanges() > 0)
+                    {
+                        if(AddUpdateSaleStatement(sale.SaleDate) > 0) //Post :Daily  Sales Total Create And Update  Function Call
+                        {
+                            DailySaleStatement(sale.SaleDate, sale.InvoiceId, vm.CustomerName);//Post :Daily  Sales Customer Wise Create And Update  Function Call
+                        }
+                        msg = "Sales Added Successfully!";
+                        SaleId = sale.SaleId;
+                        return true;
+                    }
+                    return false;
+
                     //var jsonData = new { success = true, message = "SalesAdded Successfully!" };
                     //return Json(jsonData, JsonRequestBehavior.AllowGet);
                 }
@@ -716,7 +729,7 @@ namespace App.Controllers
         }
         //Post :Daily  Sales Customer Wise Create And Update  End
         //Post :Daily  Sales Total Create And Update  Start
-        public void AddUpdateSaleStatement(DateTime salesDate)
+        public int AddUpdateSaleStatement(DateTime salesDate)
         { 
             int Swml250Quantity = 0, Sw5mlQuantity = 0, Sw1lQuantity = 0, Sw15lQuintity = 0, Sw2lQuintity = 0, Sw5lQuintity = 0, Sw20lQuintity = 0, Sw20l4Quintity = 0;
             decimal Swml250TotalPrice = 0, Sw5mlTotalPrice = 0, Sw1lTotalPrice = 0, Sw15lTotalPrice = 0, Sw2lTotalPrice = 0, Sw5lTotalPrice = 0, Sw20lTotalPrice = 0, Sw20l4TotalPrice = 0;
@@ -804,7 +817,7 @@ namespace App.Controllers
                             AddedById = userId,
                             IpAddress = Request.UserHostAddress
                         });
-                    db.SaveChanges();
+                   return db.SaveChanges();
                 }
             }
             else
@@ -884,10 +897,10 @@ namespace App.Controllers
                     ss.ModifiedById = userId;
                     ss.IpAddress = Request.UserHostAddress;
                     db.Entry(ss).State = EntityState.Modified;
-                    db.SaveChanges();
+                   return db.SaveChanges();
                 }
             }
-           
+            return 0;
         }
         //Post :Daily  Sales Total Create And Update  End
         //Post : Sales Edit  Page Start

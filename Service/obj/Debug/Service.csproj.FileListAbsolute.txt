@@ -26,3 +26,9 @@ F:\LinkupProject\WasaPOS\Service\obj\Debug\Service.csprojAssemblyReference.cache
 F:\LinkupProject\WasaPOS\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
 F:\LinkupProject\WasaPOS\Service\obj\Debug\Service.dll
 F:\LinkupProject\WasaPOS\Service\obj\Debug\Service.pdb
+D:\LinkupProject\WasaPOS\Service\bin\Debug\Service.dll
+D:\LinkupProject\WasaPOS\Service\bin\Debug\Service.pdb
+D:\LinkupProject\WasaPOS\Service\obj\Debug\Service.csproj.AssemblyReference.cache
+D:\LinkupProject\WasaPOS\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+D:\LinkupProject\WasaPOS\Service\obj\Debug\Service.dll
+D:\LinkupProject\WasaPOS\Service\obj\Debug\Service.pdb
