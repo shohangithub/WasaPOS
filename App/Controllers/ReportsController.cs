@@ -908,6 +908,62 @@ namespace App.Controllers
             return File(renderedByte, mimeType);
         }
 
+        public ActionResult BottleAndJarSaleNew(string fromdate, string todate)
+        {
+            string id = "pdf";
+            LocalReport lr = new LocalReport();
+            string path = Path.Combine(Server.MapPath("~/Reports"), "BottleAndJarSaleNew.rdlc");
+            if (System.IO.File.Exists(path))
+            {
+                lr.ReportPath = path;
+            }
+            else
+            {
+                return View("");
+            }
+            DateTime sdate = Convert.ToDateTime(fromdate);
+            DateTime edate = Convert.ToDateTime(todate);
+
+            List<SalesStatement> cm = new List<SalesStatement>();
+
+            cm = db.SalesStatements.Where(c => c.StatementDate >= sdate && c.StatementDate <= edate).ToList();
+
+            ReportDataSource rd = new ReportDataSource("AllStatementDataSet", cm);
+
+            lr.DataSources.Add(rd);
+
+
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+
+            string deviceInfo =
+            "<DeviceInfo>" +
+            "  <OutputFormat>" + id + "</OutputFormat>" +
+            "  <PageWidth>11in</PageWidth>" +
+            "  <PageHeight>8.5in</PageHeight>" +
+            "  <MarginTop>0.3in</MarginTop>" +
+            "  <MarginLeft>0.3in</MarginLeft>" +
+            "  <MarginRight>0.3in</MarginRight>" +
+            "  <MarginBottom>0.10in</MarginBottom>" +
+            "</DeviceInfo>";
+
+            byte[] renderedByte = null;
+            string[] streams = null;
+            Warning[] warnings = null;
+
+            renderedByte = lr.Render(
+                id,
+                deviceInfo,
+                out mimeType,
+                out encoding,
+                out fileNameExtension,
+                out streams,
+                out warnings);
+            return File(renderedByte, mimeType);
+        }
+
+
         public ActionResult BottleAndJarSaleWithServiceCharge(string fromdate, string todate)
         {
             string id = "pdf";
@@ -1347,6 +1403,90 @@ namespace App.Controllers
                 out warnings);
             return File(renderedByte, mimeType);
         }
+        public ActionResult DailyBottleJarSale(string ProductCategory, string todate)
+        {
+            string id = "pdf";
+            LocalReport lr = new LocalReport();
+            string path = Path.Combine(Server.MapPath("~/Reports"), "DailyBottleAndJarSale.rdlc");
+            if (System.IO.File.Exists(path))
+            {
+                lr.ReportPath = path;
+            }
+            else
+            {
+                return View("");
+            }
+            DataTable cm = new DataTable();
+            string connString2 = ConfigurationManager.ConnectionStrings["ShantiPOS"].ConnectionString;
+            string query2 = $@"
+                            SELECT CustomerName
+                            ,DailyStatementDate
+                            ,ReceieptNo
+                            ,Swml250Quantity
+                            ,Swml250TotalPrice
+                            ,Sw5mlQuantity
+                            ,Sw5mlTotalPrice
+                            ,Sw1lQuantity
+                            ,Sw1lTotalPrice
+                            ,Sw15lQuintity
+                            ,Sw15lTotalPrice
+                            ,Sw2lQuintity
+                            ,Sw2lTotalPrice
+                            ,Sw5lQuintity
+                            ,Sw5lTotalPrice
+                            ,Sw20lQuintity
+                            ,Sw20lTotalPrice
+                            ,Sw20l4Quintity
+                            ,Sw20l4TotalPrice
+                            ,Sales.TransportCost
+                            ,Sales.OtherCost
+                            FROM DailySalesStatements 
+                            INNER JOIN Sales ON Sales.InvoiceId = DailySalesStatements.ReceieptNo 
+                            where DailyStatementDate = '{todate}' 
+                            and (Swml250Quantity> 0 or Sw5mlQuantity> 0 Or Sw1lQuantity> 0 or Sw15lQuintity> 0 or Sw2lQuintity> 0 or Sw5lQuintity> 0  or Sw20lQuintity > 0 or Sw20l4Quintity > 0);
+                            ";
+
+
+            // string query2 = "select CustomerName,DailyStatementDate,ReceieptNo,Swml250Quantity,Swml250TotalPrice,Sw5mlQuantity,Sw5mlTotalPrice,Sw1lQuantity,Sw1lTotalPrice,Sw15lQuintity,Sw15lTotalPrice,Sw2lQuintity,Sw2lTotalPrice,Sw5lQuintity,Sw5lTotalPrice from DailySalesStatements where DailyStatementDate = '" + todate + "' and (Swml250Quantity>0 or Sw5mlQuantity>0 Or Sw1lQuantity>0 or Sw15lQuintity>0 or Sw2lQuintity>0 or Sw5lQuintity>0 ) ";
+
+            using (SqlConnection conn2 = new SqlConnection(connString2))
+            {
+                SqlDataAdapter da2 = new SqlDataAdapter(query2, conn2);
+                da2.Fill(cm);
+
+                ReportDataSource rd = new ReportDataSource("DailySaleDataSet", cm);
+                lr.DataSources.Add(rd);
+            }
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+
+            string deviceInfo =
+            "<DeviceInfo>" +
+            "  <OutputFormat>" + id + "</OutputFormat>" +
+            "  <PageWidth>11in</PageWidth>" +
+            "  <PageHeight>8.5in</PageHeight>" +
+            "  <MarginTop>0.1in</MarginTop>" +
+            "  <MarginLeft>0.1in</MarginLeft>" +
+            "  <MarginRight>0.1in</MarginRight>" +
+            "  <MarginBottom>0.10in</MarginBottom>" +
+            "</DeviceInfo>";
+
+            byte[] renderedByte = null;
+            string[] streams = null;
+            Warning[] warnings = null;
+
+            renderedByte = lr.Render(
+                id,
+                deviceInfo,
+                out mimeType,
+                out encoding,
+                out fileNameExtension,
+                out streams,
+                out warnings);
+            return File(renderedByte, mimeType);
+        }
+
         public ActionResult DailyBottleSales(string ProductCategory, string todate)
         {
             string id = "pdf";

@@ -48,6 +48,12 @@ namespace App.Controllers
             return View();
         }
         [CheckAuthorization]
+        public ActionResult DailyBottleJarSale()
+        {
+
+            return View();
+        }
+        [CheckAuthorization]
         public ActionResult DailyBottleSales()
         {
 
