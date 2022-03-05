@@ -26,9 +26,3 @@ F:\LinkupProject\WasaPOS\Utility\obj\Debug\Utility.csproj.CoreCompileInputs.cach
 F:\LinkupProject\WasaPOS\Utility\obj\Debug\Utility.dll
 F:\LinkupProject\WasaPOS\Utility\obj\Debug\Utility.pdb
 F:\LinkupProject\WasaPOS\Utility\obj\Debug\Utility.csprojAssemblyReference.cache
-D:\LinkupProject\WasaPOS\Utility\bin\Debug\Utility.dll
-D:\LinkupProject\WasaPOS\Utility\bin\Debug\Utility.pdb
-D:\LinkupProject\WasaPOS\Utility\obj\Debug\Utility.csproj.AssemblyReference.cache
-D:\LinkupProject\WasaPOS\Utility\obj\Debug\Utility.csproj.CoreCompileInputs.cache
-D:\LinkupProject\WasaPOS\Utility\obj\Debug\Utility.dll
-D:\LinkupProject\WasaPOS\Utility\obj\Debug\Utility.pdb

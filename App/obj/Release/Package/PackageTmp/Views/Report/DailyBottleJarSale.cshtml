@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "DailyBottleJarSale";
+    string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+}
+
+<div class="row">
+    <div class="col-xs-12 ">
+        <div class="widget-box">
+            <div class="widget-header">
+                <h4 class="widget-title">Daily Bottle & Jar Sale Information</h4>
+
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main">
+
+                    <form id="water_sales" method="post" action="@Url.Action("DailyBottleJarSale", "Reports")" target="_blank">
+                        <input type="text" id="hidden_area" style="display:none;" />
+                        <div class="row">
+                            <div class="col-xs-12 ">
+                                <div class="widget-box">
+                                    <div class="widget-header">
+                                        <h4 class="widget-title">Daily Water Sales Records</h4>
+
+                                    </div>
+
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label no-padding-right" for="fromdate"> Bottle & Jar</label>
+
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" value="Bottle & Jar" placeholder="Bottle & Jar" name="ProductCategory" readonly>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label no-padding-right" for="todate">To Date</label>
+
+                                                        <div class="col-sm-9">
+                                                            <div class='input-group date'>
+                                                                <input type="text" class="form-control" value="@currentDate" name="todate" id="todate">
+                                                                <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                </span>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3 col-sm-offset-9">
+                                                            <input type="submit" class="btn-search" value="Search" />
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<span></span>
+<script type="text/javascript">
+    $(function () {
+        $('#todate').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+    })
+    $(function () {
+        $('#fromdate').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+    });
+
+</script>
+
